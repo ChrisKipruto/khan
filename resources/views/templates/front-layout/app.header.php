@@ -16,11 +16,14 @@
     <link rel="stylesheet" href="../../../public/fontawesome/css/all.min.css">
     <!-- favicon -->
     <link rel="shortcut icon" href="../../../public/img/icons/logo2.png" type="image/x-icon">
+
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Sulphur+Point:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="bg-red-100">
 
     <header>
-
+        <?php require '../includes/nav.php'; ?>
     </header>
 
     <main>

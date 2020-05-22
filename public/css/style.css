@@ -1,0 +1,15 @@
+* {
+    font-family: 'Sulphur Point', sans-serif;
+}
+
+/* navbar */
+#frontNavbar .navbar-nav li a {
+    font-size: .75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+#frontNavbar .navbar-nav li a:hover {
+    color: #f44336;
+    transition: all ease-in .3s;
+}
