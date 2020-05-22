@@ -15,7 +15,7 @@
     <!-- fontawesome -->
     <link rel="stylesheet" href="../../../public/fontawesome/css/all.min.css">
     <!-- favicon -->
-    <link rel="shortcut icon" href="../../../public/img/icons/logo2.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../../../public/img/icons/logo1.png" type="image/x-icon">
 
     <!-- fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Sulphur+Point:wght@300;400;700&display=swap" rel="stylesheet">

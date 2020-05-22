@@ -1,8 +1,12 @@
     
     </main>
 
-    <footer>
-        
+    <footer class="text-center mt-20">
+        <h3 class="font-weight-bold mb-3">
+            <strong>
+                Copyright &copy; <?php echo date('Y'); ?> Khan Store 
+            </strong>
+        </h3>
     </footer>
 
     <!-- jquery -->

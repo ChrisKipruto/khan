@@ -3,7 +3,7 @@
     <div class="container">
         <!-- brand logo -->
         <a href="<?php echo $_SERVER['PHP_SELF']; ?>" class="navbar-brand outline-none d-flex align-items-center">
-            <img src="../../../public/img/icons/logo1.png" class="h-12" alt="Khan Store app Logo">
+            <img src="../../../public/img/icons/logo3.png" class="h-12" alt="Khan Store app Logo">
             <h6 class="font-bold text-gray-800 uppercase">
                 Khan
                 <span class="red-text">Store</span>
