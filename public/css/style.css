@@ -1,6 +1,15 @@
 * {
     font-family: 'Sulphur Point', sans-serif;
 }
+html {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
 
 /* navbar */
 #frontNavbar .navbar-nav li a {
@@ -13,3 +22,5 @@
     color: #f44336;
     transition: all ease-in .3s;
 }
+
+/* footer */

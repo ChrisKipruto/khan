@@ -1,10 +1,10 @@
-<nav class="navbar navbar-expand-lg navbar-light red lighten-4 fixed-top" id="frontNavbar">
+<nav class="navbar navbar-expand-lg navbar-dark unique-color-dark fixed-top shadow-none" id="frontNavbar">
     <!-- container -->
     <div class="container">
         <!-- brand logo -->
         <a href="<?php echo $_SERVER['PHP_SELF']; ?>" class="navbar-brand outline-none d-flex align-items-center">
-            <img src="../../../public/img/icons/logo3.png" class="h-12" alt="Khan Store app Logo">
-            <h6 class="font-bold text-gray-800 uppercase">
+            <img src="../../../public/img/icons/logo1.png" class="h-12 pr-1" alt="Khan Store app Logo">
+            <h6 class="font-bold white-text uppercase">
                 Khan
                 <span class="red-text">Store</span>
             </h6>
