@@ -3,8 +3,8 @@
     <div class="container">
         <!-- brand logo -->
         <a href="<?php echo $_SERVER['PHP_SELF']; ?>" class="navbar-brand outline-none d-flex align-items-center">
-            <img src="../../../public/img/icons/logo3.png" class="h-12 pr-1" alt="Khan Store app Logo">
-            <h6 class="font-bold black-text uppercase">
+            <img src="../../../public/img/icons/logo3.png" class="h-12 pr-2" alt="Khan Store app Logo">
+            <h6 class="font-bold black-text text-xl uppercase">
                 Khan
                 <span class="red-text">Store</span>
             </h6>
@@ -43,7 +43,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="" class="nav-link outline-none px-3 py-2 bg-red-500 shadow-md white-text rounded">Register</a>
+                    <a href="" class="nav-link outline-none px-3 py-2 bg-red-500 shadow-md white-text">Register</a>
                 </li>
             </ul>
         </div>

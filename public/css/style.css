@@ -23,4 +23,31 @@ body {
     transition: all ease-in .3s;
 }
 
-/* footer */
+/* about us */
+#pageTitle h4 {
+    position: relative;
+}
+
+#pageTitle h4::after {
+    content: "";
+    position: absolute;
+    height: 4px;
+    bottom: -4px;
+    width: 15%;
+    background: #f44336;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+}
+
+#pageTitle h4::before {
+    content: "";
+    position: absolute;
+    height: 10px;
+    bottom: -7px;
+    width: 8%;
+    background: #f44336;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+}
