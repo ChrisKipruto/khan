@@ -1,3 +1,6 @@
+<?php
+    $path = "/dev/khan/resources/views";
+?>
 <nav class="navbar navbar-expand-lg navbar-light red lighten-4 fixed-top shadow-md" id="frontNavbar">
     <!-- container -->
     <div class="container">
@@ -20,26 +23,26 @@
             <!-- left content -->
             <ul class="navbar-nav mr-auto px-2">
                 <li class="nav-item">
-                    <a href="index.php" class="nav-link outline-none">Home</a>
+                    <a href="<?php echo $path . '/pages/index.php'; ?>" class="nav-link outline-none">Home</a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="services.php" class="nav-link outline-none">Services</a>
+                    <a href="<?php echo $path . '/pages/services.php'; ?>" class="nav-link outline-none">Services</a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="contact.php" class="nav-link outline-none">Contact us</a>
+                    <a href="<?php echo $path . '/pages/contact.php'; ?>" class="nav-link outline-none">Contact us</a>
                 </li>
             </ul>
 
             <!-- right content -->
             <ul class="navbar-nav ml-auto px-2">
                 <li class="nav-item">
-                    <a href="" class="nav-link outline-none">Login</a>
+                    <a href="<?php echo $path . '/auth/login.php'; ?>" class="nav-link outline-none">Login</a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="" class="nav-link outline-none px-3 py-2 bg-red-500 shadow-md white-text">Register</a>
+                    <a href="<?php echo $path . '/auth/register.php'; ?>" class="nav-link outline-none px-3 py-2 bg-red-500 shadow-md white-text">Register</a>
                 </li>
             </ul>
         </div>
