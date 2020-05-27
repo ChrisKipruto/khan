@@ -24,10 +24,6 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="about.php" class="nav-link outline-none">About Us</a>
-                </li>
-
-                <li class="nav-item">
                     <a href="services.php" class="nav-link outline-none">Services</a>
                 </li>
 
