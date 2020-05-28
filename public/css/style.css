@@ -11,6 +11,7 @@ body {
     min-height: 100%;
 }
 
+
 /* navbar */
 #frontNavbar .navbar-nav li a {
     font-size: .75rem;
@@ -50,4 +51,9 @@ body {
     margin: 0 auto;
     left: 0;
     right: 0;
+}
+
+
+#register-form input[type='checkbox']:checked {
+    background-color: #ff4444 !important;
 }

@@ -15,7 +15,7 @@
         </div>
     </div>
 
-    <div class="row mt-4 px-4 py-4">
+    <div class="row mt-4 px-3 py-3">
         <!-- delivery -->
         <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-4 cursor-pointer">
             <div class=" rounded transition duration-500 ease-in-out transform hover:-translate-y-1 hover:shadow-md hover:scale-110">
