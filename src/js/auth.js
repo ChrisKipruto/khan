@@ -19,40 +19,6 @@ $(function(){
     let loginEmail = $("input#login-email");
     let loginPassword = $("input#login-password");
 
-    loginForm.submit(function(e){
-
-        e.preventDefault();
-
-        // check email
-        if(loginEmail.val() === '') {
-            dangerMsg.show();
-            dangerMsgP.html('Email Address is required!');
-            loginEmail.focus();
-            return false;
-        } else {
-            dangerMsg.hide();
-            dangerMsgP.html('');
-        }
-
-        // check password
-        if(loginPassword.val() === '') {
-            dangerMsg.show();
-            dangerMsgP.html('Password is required!');
-            loginPassword.focus();
-            return false;
-        } else {
-            dangerMsg.hide();
-            dangerMsgP.html('');
-        }
-
-        submitStatus = true;
-
-        if(submitStatus === true){
-            
-        }
-
-    });
-
     //////////////////////////////////////////////////////
 
 });
