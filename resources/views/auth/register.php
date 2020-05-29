@@ -25,19 +25,19 @@
 
                             <div class="mb-3">
                                 <label for="email" class="uppercase font-bold text-xs text-gray-900">E-Mail Address</label>
-                                <input type="email" name="email" id="email" placeholder="e.g name@mydomain.com" class="w-full px-3 py-3 rounded shadow-sm text-gray-900 outline-none transition duration-500 ease-in-out hover:bg-red-200 focus:bg-red-300">
+                                <input type="email" name="email" id="email" placeholder="e.g name@mydomain.com" class="w-full px-3 py-3 rounded shadow-sm text-gray-900 outline-none transition duration-500 ease-in-out hover:bg-red-200 focus:shadow-md focus:bg-red-300">
                             </div>
                         </div>
 
                         <div class="col-xl-5">
                             <div class="mb-3">
                                 <label for="password" class="uppercase font-bold text-xs text-gray-900">Password</label>
-                                <input type="password" name="password" id="password" class="w-full px-3 py-3 rounded shadow-sm text-gray-900 outline-none transition duration-500 ease-in-out hover:bg-red-200 focus:bg-red-300">
+                                <input type="password" name="password" id="password" class="w-full px-3 py-3 rounded shadow-sm text-gray-900 outline-none transition duration-500 ease-in-out hover:bg-red-200 focus:shadow-md focus:bg-red-300">
                             </div>
 
                             <div class="mb-3">
                                 <label for="confirm-password" class="uppercase font-bold text-xs text-gray-900">Confirm Password</label>
-                                <input type="password" name="confirm-password" id="confirm-password" class="w-full px-3 py-3 rounded shadow-sm text-gray-900 outline-none transition duration-500 ease-in-out hover:bg-red-200 focus:bg-red-300">
+                                <input type="password" name="confirm-password" id="confirm-password" class="w-full px-3 py-3 rounded shadow-sm text-gray-900 outline-none transition duration-500 ease-in-out hover:bg-red-200 focus:shadow-md focus:bg-red-300">
                             </div>
 
                             <div class="mb-3">

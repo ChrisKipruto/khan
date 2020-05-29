@@ -19,5 +19,8 @@
     <script src="../../../public/js/mdb.min.js"></script>
     <!-- datatables -->
     <script src="../../../public/js/addons/datatables.min.js"></script>
+    <!-- src js -->
+    <script src="../../../src/js/main.js"></script>
+    <script src="../../../src/js/auth.js"></script>
 </body>
 </html>
