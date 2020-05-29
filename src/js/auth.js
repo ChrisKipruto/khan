@@ -8,6 +8,8 @@ $(function(){
     var warningMsgP = $("div.warning-msg p");
     var successMsgP = $("div.success-msg p");
 
+    var submitStatus = false;
+
     /**
      * Login Form
     */
@@ -41,6 +43,12 @@ $(function(){
         } else {
             dangerMsg.hide();
             dangerMsgP.html('');
+        }
+
+        submitStatus = true;
+
+        if(submitStatus === true){
+            
         }
 
     });
