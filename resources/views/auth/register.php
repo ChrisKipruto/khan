@@ -15,6 +15,8 @@
                     </h4>
                 </div>
 
+                <?php include '../includes/messages.php'; ?>
+
                 <form action="" id="register-form" class="px-4 py-4">
                     <div class="row d-flex justify-between">
                         <div class="col-xl-5">
