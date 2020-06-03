@@ -4,7 +4,7 @@
 <!-- title -->
 <title>Khan Store &bull; Services</title>
 
-<div class="container mt-20">
+<div class="container-fluid mt-20">
     <div class="row d-flex justify-content-center">
         <!-- company name -->
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-3 mt-4" id="pageTitle">

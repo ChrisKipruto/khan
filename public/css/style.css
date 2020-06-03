@@ -11,6 +11,10 @@ body {
     min-height: 100%;
 }
 
+a.hover-white:hover {
+    color: white !important;
+    transition: all ease .2s;
+}
 
 /* navbar */
 #frontNavbar .navbar-nav li a {

@@ -28,10 +28,21 @@
                 $customer = mysqli_fetch_assoc($result);
 
                 # check is password match
-                if(!password_verify($pwd, $customer['password'])){
+                if(!password_verify($pwd, $customer['pass_word'])){
                     echo 'passwords do not match';
                 } else {
-                    echo 'ok';
+
+                    # start session
+                    session_start();
+
+                    # set session variables
+                    $_SESSION['id'] = $customer['id'];
+                    $_SESSION['fname'] = $customer['fullname'];
+                    $_SESSION['email'] = $customer['email'];
+                    $_SESSION['created_at'] = $customer['created_at'];
+
+                    echo 'Log In';
+
                 }
 
             }

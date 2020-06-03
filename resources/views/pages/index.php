@@ -4,7 +4,7 @@
 <!-- title -->
 <title>Khan Store &bull; Home</title>
 
-<div class="container mt-20">
+<div class="container-fluid mt-20">
     <div class="row d-flex justify-content-center">
         <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 h-full">
             <div class="row px-3 pt-5">
