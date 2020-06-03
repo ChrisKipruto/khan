@@ -8,10 +8,10 @@
     <div class="row d-flex justify-content-center align-items-center flex-center">
         <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12">
             <div class="p-3">
-                <div class="text-center border-b-2 border-red-600 mb-2 py-3">
+                <div class="text-center border-b-2 border-indigo-600 mb-2 py-3">
                     <h4 class="text-2xl uppercase font-bold">
                         Sign
-                        <span class="red-text">Up</span>
+                        <span class="indigo-text">Up</span>
                     </h4>
                 </div>
 
@@ -22,13 +22,13 @@
                         <div class="col-xl-5">
                             <div class="mb-3">
                                 <label for="name" class="uppercase font-bold text-xs text-gray-900">Name</label>
-                                <input type="text" name="reg-name" id="reg-name" class="w-full px-3 py-3 rounded shadow-sm text-gray-900 outline-none transition duration-500 ease-in-out hover:bg-red-200 focus:bg-red-300">
+                                <input type="text" name="reg-name" id="reg-name" class="w-full px-3 py-3 rounded shadow-sm text-gray-900 outline-none transition duration-500 ease-in-out hover:bg-indigo-200 focus:bg-indigo-300">
                                 <p class="red-text font-semibold font-small name-help"></p>
                             </div>
 
                             <div class="mb-3">
                                 <label for="email" class="uppercase font-bold text-xs text-gray-900">E-Mail Address</label>
-                                <input type="email" name="reg-email" id="reg-email" placeholder="e.g name@mydomain.com" class="w-full px-3 py-3 rounded shadow-sm text-gray-900 outline-none transition duration-500 ease-in-out hover:bg-red-200 focus:shadow-md focus:bg-red-300">
+                                <input type="email" name="reg-email" id="reg-email" placeholder="e.g name@mydomain.com" class="w-full px-3 py-3 rounded shadow-sm text-gray-900 outline-none transition duration-500 ease-in-out hover:bg-indigo-200 focus:shadow-md focus:bg-indigo-300">
                                 <p class="red-text font-semibold font-small email-help"></p>
                             </div>
                         </div>
@@ -36,13 +36,13 @@
                         <div class="col-xl-5">
                             <div class="mb-3">
                                 <label for="password" class="uppercase font-bold text-xs text-gray-900">Password</label>
-                                <input type="password" name="reg-password" id="reg-password" class="w-full px-3 py-3 rounded shadow-sm text-gray-900 outline-none transition duration-500 ease-in-out hover:bg-red-200 focus:shadow-md focus:bg-red-300">
+                                <input type="password" name="reg-password" id="reg-password" class="w-full px-3 py-3 rounded shadow-sm text-gray-900 outline-none transition duration-500 ease-in-out hover:bg-indigo-200 focus:shadow-md focus:bg-indigo-300">
                                 <p class="red-text font-semibold font-small pwd-help"></p>
                             </div>
 
                             <div class="mb-3">
                                 <label for="confirm-password" class="uppercase font-bold text-xs text-gray-900">Confirm Password</label>
-                                <input type="password" name="confirm-password" id="confirm-password" class="w-full px-3 py-3 rounded shadow-sm text-gray-900 outline-none transition duration-500 ease-in-out hover:bg-red-200 focus:shadow-md focus:bg-red-300">
+                                <input type="password" name="confirm-password" id="confirm-password" class="w-full px-3 py-3 rounded shadow-sm text-gray-900 outline-none transition duration-500 ease-in-out hover:bg-indigo-200 focus:shadow-md focus:bg-indigo-300">
                                 <p class="red-text font-semibold font-small confirm-help"></p>
                             </div>
 
@@ -51,11 +51,11 @@
                                     <label for="terms-conditions" class="font-bold text-xs text-gray-900 cursor-pointer ">
                                         <input type="checkbox" name="terms-conditions" id="terms-conditions" class="cursor-pointer">
                                         Accept
-                                        <a href="" class="font-bold red-text">Terms and Conditions</a>
+                                        <a href="" class="font-bold indigo-text">Terms and Conditions</a>
                                     </label>
                                 </div>
  
-                                <button class="btn btn-md red accent-2 white-text tracking-widest font-bold" id="register-button">
+                                <button class="btn btn-md indigo accent-2 white-text tracking-widest font-bold" id="register-button">
                                     Register
                                 </button>
                             </div>

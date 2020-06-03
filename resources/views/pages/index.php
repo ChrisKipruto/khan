@@ -11,9 +11,9 @@
                 <!-- text -->
                 <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12 mb-4">
                     <div class="text-right">
-                        <h1 class="font-semibold text-gray-900 text-2xl border-b-2 border-red-500 pb-2 mb-3">
+                        <h1 class="font-semibold text-gray-900 text-2xl border-b-2 border-indigo-500 pb-2 mb-3">
                             Welcome to Khan
-                            <span class="red-text">Store</span>
+                            <span class="indigo-text">Store</span>
                         </h1>
 
                         <p class="mb-3 text-gray-700 font-small">
@@ -21,7 +21,7 @@
                             and Eldoret. We provide a wide variety of products for you with fast delivery.
                         </p>
 
-                        <a href="" class="btn btn-lg red accent-2 white-text tracking-wider">
+                        <a href="" class="btn btn-lg indigo accent-2 white-text tracking-wider">
                             <i class="fab fa-shopify pr-2"></i>
                             Shop Online
                         </a>

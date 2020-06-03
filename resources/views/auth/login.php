@@ -8,10 +8,10 @@
     <div class="row d-flex justify-content-center align-items-center flex-center">
         <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12">
             <div class="p-3">
-                <div class="text-center border-b-2 border-red-600 mb-2 py-3">
+                <div class="text-center border-b-2 border-indigo-600 mb-2 py-3">
                     <h4 class="text-2xl uppercase font-bold">
                         Sign
-                        <span class="red-text">In</span>
+                        <span class="indigo-text">In</span>
                     </h4>
                 </div>
 
@@ -20,13 +20,13 @@
                 <form id="login-form" class="px-4 py-4">
                     <div class="mb-3">
                         <label for="login-email" class="uppercase font-bold text-xs text-gray-900">E-Mail Address</label>
-                        <input type="email" name="login-email" id="login-email" class="w-full px-3 py-3 rounded shadow-sm text-gray-800 outline-none transition duration-500 ease-in-out hover:bg-red-200 focus:shadow-md focus:bg-red-300">
+                        <input type="email" name="login-email" id="login-email" class="w-full px-3 py-3 rounded shadow-sm text-gray-800 outline-none transition duration-500 ease-in-out hover:bg-indigo-200 focus:shadow-md focus:bg-indigo-300">
                         <p class="red-text font-semibold font-small email-help"></p>
                     </div>
 
                     <div class="mb-3">
                         <label for="login-password" class="uppercase font-bold text-xs text-gray-900">Password</label>
-                        <input type="password" name="login-password" id="login-password" class="w-full px-3 py-3 rounded shadow-sm text-gray-800 outline-none transition duration-500 ease-in-out hover:bg-red-200 focus:shadow-md focus:bg-red-300">
+                        <input type="password" name="login-password" id="login-password" class="w-full px-3 py-3 rounded shadow-sm text-gray-800 outline-none transition duration-500 ease-in-out hover:bg-indigo-200 focus:shadow-md focus:bg-indigo-300">
                         <p class="red-text font-semibold font-small pwd-help"></p>
                     </div>
 
@@ -36,7 +36,7 @@
                             <label for="remember-me" class="font-bold text-sm text-gray-900 cursor-pointer ">Remeber Me</label>
                         </div>
 
-                        <button class="btn btn-md red accent-2 white-text tracking-wide" id="login-button">
+                        <button class="btn btn-md indigo accent-2 white-text tracking-wide" id="login-button">
                             Login
                         </button>
                     </div>

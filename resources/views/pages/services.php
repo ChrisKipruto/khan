@@ -10,7 +10,7 @@
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-3 mt-4" id="pageTitle">
             <h4 class="text-gray-900 text-center text-2xl font-bold uppercase">
                 Our 
-                <span class="red-text">Services</span>
+                <span class="indigo-text">Services</span>
             </h4>
         </div>
     </div>
