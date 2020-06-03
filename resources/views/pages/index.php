@@ -31,7 +31,7 @@
                 <!-- image -->
                 <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12mb-4">
                     <div class="view rounded">
-                        <img src="../../../public/img/icons/logo1.png" class="img-fluid" alt="Home Page banner Image">
+                        <img src="../../../public/img/icons/logo2.png" class="img-fluid" alt="Home Page banner Image">
                     </div>
                 </div>
             </div>
