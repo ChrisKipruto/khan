@@ -19,6 +19,14 @@
     <script src="../../../public/js/mdb.min.js"></script>
     <!-- datatables -->
     <script src="../../../public/js/addons/datatables.min.js"></script>
+    <!-- baguette box js -->
+    <script src="../../../public/js/baguetteBox.min.js"></script>
+    <!-- isotope js -->
+    <script src="../../../public/js/isotope.min.js"></script>
+    <!-- magnific js -->
+    <script src="../../../public/Magnific-Popup/dist/jquery.magnific-popup.min.js"></script>
+    <!-- ratinf -->
+    <script src="../../../src/js/vendor/addons/rating.js"></script>
     <!-- src js -->
     <script src="../../../src/js/main.js"></script>
     <script src="../../../src/js/auth.js"></script>

@@ -73,3 +73,8 @@ a.hover-white:hover {
 .success-msg {
         display: none;
 }
+
+.w-68 {
+    width: 18em;
+    display: none;
+}

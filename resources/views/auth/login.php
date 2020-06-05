@@ -20,7 +20,7 @@
                 <form id="login-form" class="px-4 py-4">
                     <div class="mb-3">
                         <label for="login-email" class="uppercase font-bold text-xs text-gray-900">E-Mail Address</label>
-                        <input type="email" name="login-email" id="login-email" class="w-full px-3 py-3 rounded shadow-sm text-gray-800 outline-none transition duration-500 ease-in-out hover:bg-indigo-200 focus:shadow-md focus:bg-indigo-300">
+                        <input type="email" placeholder="e.g. name@mydomain.com" name="login-email" id="login-email" class="w-full px-3 py-3 rounded shadow-sm text-gray-800 outline-none transition duration-500 ease-in-out hover:bg-indigo-200 focus:shadow-md focus:bg-indigo-300">
                         <p class="red-text font-semibold font-small email-help"></p>
                     </div>
 

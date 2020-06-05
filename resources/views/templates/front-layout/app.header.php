@@ -16,6 +16,10 @@
     <link rel="stylesheet" href="../../../public/fontawesome/css/all.min.css">
     <!-- favicon -->
     <link rel="shortcut icon" href="../../../public/img/icons/logo2.png" type="image/x-icon">
+    <!-- baguette box css -->
+    <link rel="stylesheet" href="../../../public/css/baguetteBox.min.css">
+    <!-- magnific -->
+    <link rel="stylesheet" href="../../../public/Magnific-Popup/dist/magnific-popup.css">
 
     <!-- fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Sulphur+Point:wght@300;400;700&display=swap" rel="stylesheet">

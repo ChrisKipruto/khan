@@ -35,9 +35,9 @@
                         <a href="<?php echo $path . '/pages/contact.php'; ?>" class="nav-link outline-none">Contact us</a>
                     </li>
                 <?php else: ?>
-                    <li class="nav-item">
-                        <a href="<?php echo $path . '/pages/index.php'; ?>" class="nav-link outline-none">
-                            <?php echo htmlspecialchars($_SESSION['fname']); ?>
+                    <li class="nav-item waves-effect">
+                        <a href="<?php echo $path . '/dashboard/index.php'; ?>" class="nav-link outline-none">
+                            Shop
                         </a>
                     </li>
                 <?php endif; ?>
@@ -55,20 +55,28 @@
                         <a href="<?php echo $path . '/auth/register.php'; ?>" class="nav-link outline-none px-3 py-2 bg-indigo-500 shadow-md white-text">Register</a>
                     </li>
                 <?php else: ?>
+                    <li class="nav-item">
+                        <a href="" class="nav-link waves-effect d-flex align-items-center">
+                            <span class="badge danger-color z-depth-1 h-5 w-5 rounded-full flex-center"> 0 </span>
+                            <i id="navbar-static-cart" alt="Cart" class="fas fa-shopping-cart"></i>
+                            <span class=""> Cart </span>
+                        </a>
+                    </li>
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle font-small font-semibold" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-tools mr-1"></i>
-                            Dashboard
+                            <i class="fas fa-user mr-1"></i>
+                            hi, <?php echo htmlspecialchars($_SESSION['fname']); ?>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right dropdown-info p-2" aria-labelledby="navbarDropdown">
                             <a href="" class="dropdown-item outline-none hover:shadow-md hover:bg-indigo-500 hover-white hover:text-white">
-                                <i class="fas fa-wrench mr-2"></i>
+                                <i class="fas fa-tools mr-2"></i>
                                 Account Settings
                             </a>
 
                             <a href="" class="dropdown-item outline-none hover:shadow-md hover:bg-indigo-500 hover-white hover:text-white">
-                                <i class="fas fa-question-circle mr-2"></i>
-                                Support
+                                <i class="fas fa-sort mr-2"></i>
+                                Orders
                             </a>
 
                             <div class="dropdown-divider"></div>

@@ -1,5 +1,7 @@
 $(function(){
 
+    $('#rateMe1').mdbRate();
+
     /**
      * Alert Message
     */
@@ -18,6 +20,39 @@ $(function(){
 
     successMsgBtn.on('click', function(e){
         $("div.success-msg").fadeOut('fast');
+    });
+
+    //////////////////////////////////////////////////
+
+
+    const notification = $("#notification");
+
+    let loginMsg = notification.attr("login-success");
+
+    /**
+     * Show login notification
+     */
+    function showNotification(){
+        if(loginMsg === "success") {
+            notification.fadeIn("slow", function(){
+                setTimeout(function(){
+                    notification.fadeOut("slow");
+                }, 3000);
+            });
+        }
+    }
+
+    showNotification();
+
+    //////////////////////////////////////////////////
+
+    /**
+     * Magnific
+    */
+
+    $('.test-popup-link').magnificPopup({
+        type: 'image',
+        gallery:{enabled:true}
     });
 
     //////////////////////////////////////////////////
