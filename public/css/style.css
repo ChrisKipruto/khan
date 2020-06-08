@@ -16,6 +16,11 @@ a.hover-white:hover {
     transition: all ease .2s;
 }
 
+a.hover-black:hover {
+    color: black !important;
+    transition: all ease .2s;
+}
+
 /* navbar */
 #frontNavbar .navbar-nav li a {
     font-size: .75rem;
@@ -77,4 +82,10 @@ a.hover-white:hover {
 .w-68 {
     width: 18em;
     display: none;
+}
+
+.font-navbar {
+    font-size: .77rem;
+    font-weight: 700;
+    text-transform: uppercase;
 }
