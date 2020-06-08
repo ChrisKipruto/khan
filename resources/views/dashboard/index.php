@@ -25,7 +25,7 @@ if(isset($_GET['login'])){
 <!-- title -->
 <title>Khan Store &bull; <?php echo htmlspecialchars($_SESSION['fname']); ?> </title>
 
-<div class="container-fluid mt-20">
+<div class="container mt-20">
     <!-- login notification -->
     <div id="notification" class="w-68 z-40 absolute top-auto right-0 mr-2 mt-1 position-fixed" login-success="<?php echo $loginSuccess; ?>">
         <div class="indigo accent-1 z-depth-1 p-3 relative">
