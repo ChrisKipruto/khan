@@ -146,7 +146,7 @@ if(isset($_GET['login'])){
                             </a>
                         </h5>
                         <p class="font-small">
-                            <span class="text-danger mr-1"><strong>Ksh 3,500</strong></span>
+                            <span class="text-danger mr-1"><strong>Ksh 4,500</strong></span>
                         </p>
                     </div>
                 </div>
