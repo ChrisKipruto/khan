@@ -75,7 +75,7 @@
             <div class="w-1/2 h-full d-flex align-items-center">
                 <h4 class="text-lg font-semibold text-gray-200">
                     <i class="fas fa-tools"></i>
-                    Dashboard <small class="text-muted">Manage Your Site</small>
+                    Dashboard <small class="text-muted">Manage Your System</small>
                 </h4>
             </div>
 
