@@ -21,6 +21,10 @@ a.hover-black:hover {
     transition: all ease .2s;
 }
 
+#preload {
+    display: none;
+}
+
 /* navbar */
 #frontNavbar .navbar-nav li a {
     font-size: .75rem;

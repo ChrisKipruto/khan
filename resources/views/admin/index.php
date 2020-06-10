@@ -21,7 +21,7 @@
                         <!-- products -->
                         <tr class="px-3 d-flex justify-between align-items-center">
                             <th class="border-0">
-                                <a href="">
+                                <a href="products.php">
                                     <i class="fab fa-product-hunt pr-2"></i>
                                     Products
                                 </a>
@@ -66,81 +66,71 @@
 
         <!-- tiles: system overview -->
         <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 mb-4">
-            <div class="card shadow-md">
-                <div class="card-header indigo lighten-4 rounded-0 py-3 px-3 border-0">
-                    <h4 class="text-lg pb-1 font-semibold text-gray-800">
-                        System Overview
-                    </h4>
+            <div class="row">
+                <!-- customers -->
+                <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 mb-4">
+                    <div class="bg-gray-300 shadow-md rounded-sm flex-center py-4">
+                        <div class="text-center">
+                            <a href="">
+                                <h2 class="text-gray-700 font-bold mb-1 fa-2x">
+                                    <i class="fas fa-users"></i>
+                                    0
+                                </h2>
+                                <h4 class="text-gray-700 font-bold">
+                                    Customers
+                                </h4>
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="card-body">
-                    <div class="row">
-                        <!-- customers -->
-                        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 mb-4">
-                            <div class="bg-gray-300 shadow-md rounded-sm flex-center py-4">
-                                <div class="text-center">
-                                    <a href="">
-                                        <h2 class="text-gray-700 font-bold mb-1 fa-2x">
-                                            <i class="fas fa-users"></i>
-                                            0
-                                        </h2>
-                                        <h4 class="text-gray-700 font-bold">
-                                            Customers
-                                        </h4>
-                                    </a>
-                                </div>
-                            </div>
+                <!-- Orders -->
+                <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 mb-4">
+                    <div class="bg-gray-300 shadow-md rounded-sm flex-center py-4">
+                        <div class="text-center">
+                            <a href="">
+                                <h2 class="text-gray-700 font-bold mb-1 fa-2x">
+                                    <i class="fab fa-product-hunt"></i>
+                                    0
+                                </h2>
+                                <h4 class="text-gray-700 font-bold">
+                                    Orders
+                                </h4>
+                            </a>
                         </div>
+                    </div>
+                </div>
 
-                        <!-- Orders -->
-                        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 mb-4">
-                            <div class="bg-gray-300 shadow-md rounded-sm flex-center py-4">
-                                <div class="text-center">
-                                    <a href="">
-                                        <h2 class="text-gray-700 font-bold mb-1 fa-2x">
-                                            <i class="fab fa-product-hunt"></i>
-                                            0
-                                        </h2>
-                                        <h4 class="text-gray-700 font-bold">
-                                            Orders
-                                        </h4>
-                                    </a>
-                                </div>
-                            </div>
+                <!-- Products -->
+                <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 mb-4">
+                    <div class="bg-gray-300 shadow-md rounded-sm flex-center py-4">
+                        <div class="text-center">
+                            <a href="">
+                                <h2 class="text-gray-700 font-bold mb-1 fa-2x">
+                                    <i class="fas fa-folder"></i>
+                                    0
+                                </h2>
+                                <h4 class="text-gray-700 font-bold">
+                                    Products
+                                </h4>
+                            </a>
                         </div>
+                    </div>
+                </div>
 
-                        <!-- Products -->
-                        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 mb-4">
-                            <div class="bg-gray-300 shadow-md rounded-sm flex-center py-4">
-                                <div class="text-center">
-                                    <a href="">
-                                        <h2 class="text-gray-700 font-bold mb-1 fa-2x">
-                                            <i class="fas fa-folder"></i>
-                                            0
-                                        </h2>
-                                        <h4 class="text-gray-700 font-bold">
-                                            Products
-                                        </h4>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Visitors -->
-                        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 mb-4">
-                            <div class="bg-gray-300 shadow-md rounded-sm flex-center py-4">
-                                <div class="text-center">
-                                    <a href="">
-                                        <h2 class="text-gray-700 font-bold mb-1 fa-2x">
-                                            <i class="fas fa-signal"></i>
-                                            12,386
-                                        </h2>
-                                        <h4 class="text-gray-700 font-bold">
-                                            Visitors
-                                        </h4>
-                                    </a>
-                                </div>
-                            </div>
+                <!-- Visitors -->
+                <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 mb-4">
+                    <div class="bg-gray-300 shadow-md rounded-sm flex-center py-4">
+                        <div class="text-center">
+                            <a href="">
+                                <h2 class="text-gray-700 font-bold mb-1 fa-2x">
+                                    <i class="fas fa-signal"></i>
+                                    12,386
+                                </h2>
+                                <h4 class="text-gray-700 font-bold">
+                                    Visitors
+                                </h4>
+                            </a>
                         </div>
                     </div>
                 </div>

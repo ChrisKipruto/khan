@@ -11,6 +11,7 @@
 
     <!-- jquery -->
     <script src="../../../public/js/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <!-- popper -->
     <script src="../../../public/js/popper.min.js"></script>
     <!-- bootstrap -->
@@ -28,7 +29,7 @@
     <!-- ratinf -->
     <script src="../../../src/js/vendor/addons/rating.js"></script>
     <!-- src js -->
-    <script src="../../../src/js/main.js"></script>
+    <script src="../../../src/js/admin.js"></script>
     <script src="../../../src/js/auth.js"></script>
 </body>
 </html>

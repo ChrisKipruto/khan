@@ -56,6 +56,12 @@
                                 Dashboard
                             </a>
                         </li>
+
+                        <li class="nav-item">
+                            <a href="<?php echo $path . '/admin/products.php'; ?>" class="nav-link outline-none waves-effect waves-ripple tracking-wide font-navbar">
+                                Products
+                            </a>
+                        </li>
                     </ul>
 
                     <!-- left content -->
@@ -84,10 +90,16 @@
                     Create Content
                 </button>
                 <div class="dropdown-menu p-2">
-                    <a href="" class="dropdown-item outline-none hover:shadow-md hover:bg-indigo-200 hover-black">Add Product</a>
-                    <a href="" class="dropdown-item outline-none hover:shadow-md hover:bg-indigo-200 hover-black">Add Brand</a>
+                    <a href="<?php echo $path . '/admin/addBrand.php'; ?>" class="dropdown-item outline-none hover:shadow-md hover:bg-indigo-200 hover-black">
+                        Add Brand
+                    </a>
+                    <a href="<?php echo $path . '/admin/addCategory.php'; ?>" class="dropdown-item outline-none hover:shadow-md hover:bg-indigo-200 hover-black">
+                        Add Category
+                    </a>
                     <div class="dropdown-divider"></div>
-                    <a href="" class="dropdown-item outline-none hover:shadow-md hover:bg-indigo-200 hover-black">Add Category</a>
+                    <a href="<?php echo $path . '/admin/addProduct.php'; ?>" class="dropdown-item outline-none hover:shadow-md hover:bg-indigo-200 hover-black">
+                        Add Product
+                    </a>
                 </div>
             </div>
         </div>
