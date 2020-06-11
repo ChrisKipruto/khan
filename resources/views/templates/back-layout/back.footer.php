@@ -11,7 +11,7 @@
 
     <!-- jquery -->
     <script src="../../../public/js/jquery.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.5.0.js"></script> -->
     <!-- popper -->
     <script src="../../../public/js/popper.min.js"></script>
     <!-- bootstrap -->
@@ -20,6 +20,10 @@
     <script src="../../../public/js/mdb.min.js"></script>
     <!-- datatables -->
     <script src="../../../public/js/addons/datatables.min.js"></script>
+    <!-- bootbox -->
+    <script src="../../../src/js/free/bootbox.min.js"></script>
+    <!-- sweetalert -->
+    <script src="../../../src/js/free/sweetalert.min.js"></script>
     <!-- baguette box js -->
     <script src="../../../public/js/baguetteBox.min.js"></script>
     <!-- isotope js -->

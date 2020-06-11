@@ -1,5 +1,7 @@
 $(function() {
 
+    const overlay = $('#overlay');
+
     // data tables
     $("table#productsTable").DataTable();
     $('.dataTables_length').addClass('bs-select');
@@ -97,7 +99,7 @@ $(function() {
 
                     toAppend.after('<tr class="border-b" id="brand-'+JSON.parse(data).id+'"> ' + 
                         '<td class="pl-3 cursor-pointer">' +
-                            '<input type="text" id="brandTitle" value="' + JSON.parse(data).brand_title + '" class="w-56 grey lighten-2 font-semibold black-text px-2 py-2 shadow-sm" disabled />'+
+                            '<input type="text" id="brandTitle" value="' + JSON.parse(data).brand_title + '" class="w-56 grey lighten-2 font-semibold black-text px-2 py-2 shadow-sm brandTitle" bid="'+ JSON.parse(data).id +'" disabled />'+
                         ' </td>' +
                         '<td class="text-center">' +
                             '<a href="" class="pr-2 outline-none red-text deleteBrand" bid="'+ JSON.parse(data).id +'">' +
@@ -122,6 +124,64 @@ $(function() {
                         brandDanger.fadeOut("slow");
                     }, 3000);
                 });
+            }
+
+        });
+
+    });
+
+    // on click deleteBrand
+    $('body').on('click', 'a.deleteBrand', function(e) {
+
+        e.preventDefault();
+
+        let deleteId = $(this).attr('bid');
+
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover the brand!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+        .then((willDelete) => {
+
+            if(willDelete) {
+
+                let url = "../includes/post.php";
+
+                overlay.show();
+
+                $.post(url, { deleteBrand: 1, deleteId: deleteId }, function(data) {
+
+                    let result = $.trim(data);
+
+                    overlay.hide();
+
+                    // successful deletion
+                    if(result === "Delete Successful"){
+
+                        // get table row
+                        let rowToRemove = $("table#brandsTable >tbody >tr#brand-"+deleteId+"");
+
+                        // remove row
+                        rowToRemove.remove();
+
+                        $("p.brandSuccessP").html('Brand deleted successfully!');
+                        brandSuccess.fadeIn('slow', function() {
+                            setTimeout(function(){
+                                brandSuccess.fadeOut('slow')
+                            }, 3000);
+                        });
+
+                    }
+
+                    // brand does not exist
+
+                    // failed deletion
+
+                });
+
             }
 
         });
