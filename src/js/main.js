@@ -57,4 +57,50 @@ $(function(){
 
     //////////////////////////////////////////////////
 
+    /**
+     * get brands
+    */
+
+    function getBrands() {
+        setInterval(function() {
+
+            let url = "../includes/shop.php";
+
+            $.post(url, { bra: 1 }, function(data) {
+
+                $("div#shopBrands").html(data);
+
+            });
+
+        }, 500);
+    }
+    
+    getBrands();
+
+    ///////////////////////////////////////////////////////////////////////
+
+    /**
+     * getd categories
+    */
+
+    function getCategories() {
+        setInterval(function() {
+
+            let url = "../includes/shop.php";
+
+            $.post(url, { cat: 1 }, function(data) {
+
+                // console.log(data);
+
+                $("div#shopCategories").html(data);
+
+            });
+
+        }, 500);
+    }
+
+    getCategories();
+
+    ///////////////////////////////////////////////////////////////////////
+
 });

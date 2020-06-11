@@ -82,9 +82,12 @@ $(function() {
                     }, 3000);
                 });
 
+                return false;
+
             }
 
             // success
+            console.log(JSON.parse(data).brand_title);
             if(JSON.parse(data).brand_title === productBrand){
 
                 $("p.brandSuccessP").html('Brand added successfully!');
@@ -177,8 +180,30 @@ $(function() {
                     }
 
                     // brand does not exist
+                    if(result === "That brand does not exist"){
+
+                        // $('p.brand-help').html();
+                        $("p.brandDangerP").html(result);
+                        brandDanger.fadeIn("slow", function(){
+                            setTimeout(function(){
+                                brandDanger.fadeOut("slow");
+                            }, 3000);
+                        });
+        
+                    }
 
                     // failed deletion
+                    if(result === "Delete failed"){
+
+                        // $('p.brand-help').html();
+                        $("p.brandDangerP").html(result);
+                        brandDanger.fadeIn("slow", function(){
+                            setTimeout(function(){
+                                brandDanger.fadeOut("slow");
+                            }, 3000);
+                        });
+        
+                    }
 
                 });
 
@@ -187,6 +212,252 @@ $(function() {
         });
 
     });
+
+    // brand counter
+    function countBrand() {
+        setInterval(function() {
+
+            let url = "../includes/post.php";
+
+            $.post(url, { countBra: 1 }, function(data) {
+                $('div#brandTile h2 span').html(data);
+            });
+
+        }, 500)
+    }
+
+    countBrand();
+
+    ////////////////////////////////////////////////////////////////////////
+
+    /**
+     * add category
+    */
+
+   let catSuccess = $("#catSuccess");
+   let catDanger = $("#catDanger");
+   let category = $("#category");
+   let catBtn = $("a.addCatLink");
+
+    // category key up
+    category.on('keyup', function(e) {
+
+        if(e.keyCode === 13) {
+            // click catBtn
+            catBtn.click();
+        } else {
+
+            if(!/^[a-zA-Z ]*$/gi.test(category.val())){
+                $('p.cat-help').html('Enter a valid product category (no numbers and special chars).');
+            } else {
+                $('p.cat-help').html('');
+            }
+
+        }
+
+    });
+
+    // on click catBtn
+    catBtn.on('click', function(event) {
+
+        // prevent normal action
+        event.preventDefault();
+
+        if(category.val() == ""){
+
+            $('p.cat-help').html('Enter a product category!');
+                return false;
+
+        } else {
+
+            if(!/^[a-zA-Z ]*$/gi.test(category.val())){
+                $('p.cat-help').html('Enter a valid product category (no numbers and special chars).');
+                return false;
+            }
+
+        }
+
+        preload.show();
+
+        let url = "../includes/post.php";
+
+        let productCat = category.val();
+        let catTable = $("table#catsTable tbody");
+        let catTableBody = $("table#catsTable >tbody >tr");
+
+
+        $.post(url, {addCat: 1, productCat: productCat}, function(data) {
+
+            let result = $.trim(data);
+
+            preload.hide();
+
+            let tableCount = catTableBody.length;
+
+            $("p.catDangerP").html('');
+            $("p.catSuccessP").html('');
+
+            console.log(result);
+
+            // exist
+            if(result === "Category title exists"){
+
+                // $('p.brand-help').html();
+                $("p.catDangerP").html(result);
+                catDanger.fadeIn("slow", function(){
+                    setTimeout(function(){
+                        catDanger.fadeOut("slow");
+                    }, 3000);
+                });
+
+                return false;
+
+            }
+
+            let proCat = JSON.parse(data).category_title;
+
+            // console.log(JSON.parse(data).category_title);
+
+            // success
+            if(proCat === productCat){
+
+                $("p.catSuccessP").html('Category added successfully!');
+                catSuccess.fadeIn("slow", function(){
+                    setTimeout(function(){
+                        catSuccess.fadeOut("slow");
+                    }, 3000);
+                    $("p.catSuccessrP").html('');
+                });
+
+                if(tableCount > 0){
+                    let toAppend = $("table#catsTable >tbody >tr:last");
+
+                    toAppend.after('<tr class="border-b" id="category-'+JSON.parse(data).id+'"> ' + 
+                        '<td class="pl-3 cursor-pointer">' +
+                            '<input type="text" value="' + JSON.parse(data).category_title + '" class="w-56 grey lighten-2 font-semibold black-text px-2 py-2 shadow-sm" cid="'+ JSON.parse(data).id +'" disabled />'+
+                        ' </td>' +
+                        '<td class="text-center">' +
+                            '<a href="" class="pr-2 outline-none red-text deleteCat" cid="'+ JSON.parse(data).id +'">' +
+                                '<i class="fas fa-trash"></i>' +
+                            '</a>' +
+                        '</td>' +
+                    '</tr>');
+
+                } else {
+
+                    location.reload();
+
+                }
+
+            }
+
+            // failed
+            if(result === "Failed"){
+                $("p.catDangerP").html('Insert has failed!');
+                catDanger.fadeIn("slow", function(){
+                    setTimeout(function(){
+                        catDanger.fadeOut("slow");
+                    }, 3000);
+                });
+            }
+
+        });
+
+    });
+
+    // on click deleteCat
+    $('body').on('click', 'a.deleteCat', function(e) {
+
+        e.preventDefault();
+
+        let deleteId = $(this).attr('cid');
+
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover the category!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+        .then((willDelete) => {
+
+            if(willDelete) {
+
+                let url = "../includes/post.php";
+
+                overlay.show();
+
+                $.post(url, { deleteCat: 1, deleteId: deleteId }, function(data) {
+
+                    let result = $.trim(data);
+
+                    overlay.hide();
+
+                    // successful deletion
+                    if(result === "Delete Successful"){
+
+                        // get table row
+                        let rowToRemove = $("table#catsTable >tbody >tr#category-"+deleteId+"");
+
+                        // remove row
+                        rowToRemove.remove();
+
+                        $("p.catSuccessP").html('Category deleted successfully!');
+                        catSuccess.fadeIn('slow', function() {
+                            setTimeout(function(){
+                                catSuccess.fadeOut('slow')
+                            }, 3000);
+                        });
+
+                    }
+
+                    // brand does not exist
+                    if(result === "category does not exist"){
+
+                        // $('p.brand-help').html();
+                        $("p.catDangerP").html(result);
+                        catDanger.fadeIn("slow", function(){
+                            setTimeout(function(){
+                                catDanger.fadeOut("slow");
+                            }, 3000);
+                        });
+        
+                    }
+
+                    // failed deletion
+                    if(result === "Delete failed"){
+
+                        // $('p.brand-help').html();
+                        $("p.catDangerP").html(result);
+                        catDanger.fadeIn("slow", function(){
+                            setTimeout(function(){
+                                catDanger.fadeOut("slow");
+                            }, 3000);
+                        });
+        
+                    }
+
+                });
+
+            }
+
+        });
+
+    });
+
+    // categories counter
+    countCategory();
+    function countCategory() {
+        setInterval(function() {
+
+            let url = "../includes/post.php";
+
+            $.post(url, { countCat: 1 }, function(data) {
+                $('div#catTile h2 span').html(data);
+            });
+
+        }, 500)
+    }
 
     ////////////////////////////////////////////////////////////////////////
 

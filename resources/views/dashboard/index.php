@@ -55,10 +55,8 @@ if(isset($_GET['login'])){
 
                 <h5 class="mb-4 uppercase font-semibold">Brands</h5>
 
-                <div class="text-muted small text-uppercase mb-4 pl-2">
-                    <p class="mb-3"><a href="#!" class="card-link-secondary">Dresses</a></p>
-                    <p class="mb-3"><a href="#!" class="card-link-secondary">Tops, Tees &amp; Blouses</a></p>
-                    <p class="mb-3"><a href="#!" class="card-link-secondary">Sweaters</a></p>
+                <div class="text-muted small text-uppercase mb-4 pl-2" id="shopBrands">
+                    
                 </div>
 
             </section>
@@ -67,12 +65,8 @@ if(isset($_GET['login'])){
 
                 <h5 class="mb-4 uppercase font-semibold">Subcategories</h5>
 
-                <div class="text-muted small text-uppercase mb-4 pl-2">
-                    <p class="mb-3"><a href="#!" class="card-link-secondary">Dresses</a></p>
-                    <p class="mb-3"><a href="#!" class="card-link-secondary">Tops, Tees &amp; Blouses</a></p>
-                    <p class="mb-3"><a href="#!" class="card-link-secondary">Sweaters</a></p>
-                    <p class="mb-3"><a href="#!" class="card-link-secondary">Fashion Hoodies &amp; Sweatshirts</a></p>
-                    <p class="mb-3"><a href="#!" class="card-link-secondary">Jeans</a></p>
+                <div class="text-muted small text-uppercase mb-4 pl-2" id="shopCategories">
+                    
                 </div>
 
             </section>

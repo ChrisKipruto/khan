@@ -67,34 +67,34 @@
         <!-- tiles: system overview -->
         <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 mb-4">
             <div class="row">
-                <!-- customers -->
+                <!-- Categories -->
                 <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 mb-4">
                     <div class="bg-gray-300 shadow-md rounded-sm flex-center py-4">
-                        <div class="text-center">
-                            <a href="">
+                        <div class="text-center" id="catTile">
+                            <a href="addCategory.php">
                                 <h2 class="text-gray-700 font-bold mb-1 fa-2x">
-                                    <i class="fas fa-users"></i>
-                                    0
+                                    <i class="fab fa-cuttlefish"></i>
+                                    <span></span>
                                 </h2>
                                 <h4 class="text-gray-700 font-bold">
-                                    Customers
+                                    Categories
                                 </h4>
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Orders -->
+                <!-- Brands -->
                 <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 mb-4">
                     <div class="bg-gray-300 shadow-md rounded-sm flex-center py-4">
-                        <div class="text-center">
-                            <a href="">
+                        <div class="text-center" id="brandTile">
+                            <a href="addBrand.php">
                                 <h2 class="text-gray-700 font-bold mb-1 fa-2x">
-                                    <i class="fab fa-product-hunt"></i>
-                                    0
+                                    <i class="fas fa-building"></i>
+                                    <span></span>
                                 </h2>
                                 <h4 class="text-gray-700 font-bold">
-                                    Orders
+                                    Brands
                                 </h4>
                             </a>
                         </div>
