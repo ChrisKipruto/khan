@@ -219,4 +219,62 @@ if(isset($_POST['countBra'])){
 
 } /** end count brands */
 
+# get brands
+if(isset($_POST['bra'])){
+
+    # connect to db
+    require '../../config/connect.php';
+
+    # sql to get brands
+    $sql = "SELECT * FROM brands";
+
+    # run sql and store the result
+    $result = mysqli_query($conn, $sql);
+
+    # fetch the result into an array
+    $brands = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+    echo '
+        <option value=""> Open Select menu </opiton>
+    ';
+
+    foreach($brands as $brand){
+
+        echo '
+            <option value="'.htmlspecialchars($brand['id']).'">'.htmlspecialchars($brand['brand_title']).'</option>
+        ';
+
+    }
+
+}
+
+# get categories
+if(isset($_POST['cat'])){
+
+    # connect to db
+    require '../../config/connect.php';
+
+    # sql to get category
+    $sql = "SELECT * FROM categories";
+
+    # run sql and store the result
+    $result = mysqli_query($conn, $sql);
+
+    # fetch the result into an array
+    $categories = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+    echo '
+        <option value=""> Open Select menu </opiton>
+    ';
+
+    foreach($categories as $category){
+
+        echo '
+            <option value="'.htmlspecialchars($category['id']).'">'.htmlspecialchars($category['category_title']).'</option>
+        ';
+
+    }
+
+}
+
 ?>

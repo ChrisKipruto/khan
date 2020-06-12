@@ -34,6 +34,6 @@
     <script src="../../../src/js/vendor/addons/rating.js"></script>
     <!-- src js -->
     <script src="../../../src/js/admin.js"></script>
-    <script src="../../../src/js/auth.js"></script>
+    <script src="../../../src/js/products.js"></script>
 </body>
 </html>
