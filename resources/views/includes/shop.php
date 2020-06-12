@@ -19,7 +19,7 @@ if(isset($_POST['bra'])){
 
         echo '
             <p class="mb-3">
-                <a href="#" class="card-link-secondary"> '.htmlspecialchars($brand['brand_title']).' </a>
+                <a href="brands.php?id='.htmlspecialchars($brand['id']).'" class="card-link-secondary"> '.htmlspecialchars($brand['brand_title']).' </a>
             </p>
         ';
 
@@ -46,7 +46,7 @@ if(isset($_POST['cat'])){
 
         echo '
             <p class="mb-3">
-                <a href="#" class="card-link-secondary"> '.htmlspecialchars($category['category_title']).' </a>
+                <a href="categories.php?id='.htmlspecialchars($category['id']).'" class="card-link-secondary"> '.htmlspecialchars($category['category_title']).' </a>
             </p>
         ';
 
