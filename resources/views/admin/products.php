@@ -41,7 +41,6 @@ mysqli_close($conn);
                         <tr>
                             <th>Product Image</th>
                             <th>Product Title</th>
-                            <th>Product Description</th>
                             <th>Product Price</th>
                             <th>Action</th>
                         </tr>
@@ -51,12 +50,11 @@ mysqli_close($conn);
                         <?php foreach($products as $product): ?>
                             <tr>
                                 <td>
-                                    <img src="<?php echo htmlspecialchars($product['product_image'])?>" 
+                                    <img src="../../../public/uploads/<?php echo htmlspecialchars($product['product_image']); ?>" 
                                     class="h-16 rounded shadow-md" alt="Product Image">
                                 </td>
-                                <td><?php echo htmlspecialchars($product['product_title'])?></td>
-                                <td><?php echo htmlspecialchars($product['product_description'])?></td>
-                                <td><?php echo htmlspecialchars($product['product_price'])?></td>
+                                <td><?php echo htmlspecialchars($product['product_title']); ?></td>
+                                <td><?php echo htmlspecialchars($product['product_price']); ?></td>
                                 <td>
                                     <a href="" class="pr-2 outline-none light-blue-text">
                                         <i class="fas fa-info"></i>
