@@ -22,6 +22,9 @@ $(function() {
     $("table#productsTable").DataTable();
     $('.dataTables_length').addClass('bs-select');
 
+    $("table#brandsTable").DataTable();
+    $("table#catsTable").DataTable();
+
     /**
      * add brand
     */
@@ -113,12 +116,12 @@ $(function() {
                     }, 3000);
                 });
 
-                if(tableCount > 0){
+                if(tableCount > 1){
                     let toAppend = $("table#brandsTable >tbody >tr:last");
 
                     toAppend.after('<tr class="border-b" id="brand-'+JSON.parse(data).id+'"> ' + 
                         '<td class="pl-3 cursor-pointer">' +
-                            '<input type="text" id="brandTitle" value="' + JSON.parse(data).brand_title + '" class="w-56 grey lighten-2 font-semibold black-text px-2 py-2 shadow-sm brandTitle" bid="'+ JSON.parse(data).id +'" disabled />'+
+                            '<span class="font-bold tracking-wide black-text" bid="'+ JSON.parse(data).id +'">' + JSON.parse(data).brand_title + '</span>' +
                         ' </td>' +
                         '<td class="text-center">' +
                             '<a href="" class="pr-2 outline-none red-text deleteBrand" bid="'+ JSON.parse(data).id +'">' +
@@ -173,25 +176,36 @@ $(function() {
 
                 $.post(url, { deleteBrand: 1, deleteId: deleteId }, function(data) {
 
+                    let brandTableBodyToDelete = $("table#brandsTable >tbody >tr");
+                    let tableCountToDelete = brandTableBodyToDelete.length;
+
                     let result = $.trim(data);
 
                     overlay.hide();
 
-                    // successful deletion
-                    if(result === "Delete Successful"){
+                    if(tableCountToDelete === 1) {
 
-                        // get table row
-                        let rowToRemove = $("table#brandsTable >tbody >tr#brand-"+deleteId+"");
+                        location.reload();
 
-                        // remove row
-                        rowToRemove.remove();
+                    } else {
 
-                        $("p.brandSuccessP").html('Brand deleted successfully!');
-                        brandSuccess.fadeIn('slow', function() {
-                            setTimeout(function(){
-                                brandSuccess.fadeOut('slow')
-                            }, 3000);
-                        });
+                        // successful deletion
+                        if(result === "Delete Successful"){
+
+                            // get table row
+                            let rowToRemove = $("table#brandsTable >tbody >tr#brand-"+deleteId+"");
+
+                            // remove row
+                            rowToRemove.remove();
+
+                            $("p.brandSuccessP").html('Brand deleted successfully!');
+                            brandSuccess.fadeIn('slow', function() {
+                                setTimeout(function(){
+                                    brandSuccess.fadeOut('slow')
+                                }, 3000);
+                            });
+
+                        }
 
                     }
 
@@ -345,12 +359,12 @@ $(function() {
                     $("p.catSuccessrP").html('');
                 });
 
-                if(tableCount > 0){
+                if(tableCount > 1){
                     let toAppend = $("table#catsTable >tbody >tr:last");
 
                     toAppend.after('<tr class="border-b" id="category-'+JSON.parse(data).id+'"> ' + 
                         '<td class="pl-3 cursor-pointer">' +
-                            '<input type="text" value="' + JSON.parse(data).category_title + '" class="w-56 grey lighten-2 font-semibold black-text px-2 py-2 shadow-sm" cid="'+ JSON.parse(data).id +'" disabled />'+
+                        '<span class="font-bold tracking-wide black-text" cid="'+ JSON.parse(data).id +'">' + JSON.parse(data).category_title + '</span>' +
                         ' </td>' +
                         '<td class="text-center">' +
                             '<a href="" class="pr-2 outline-none red-text deleteCat" cid="'+ JSON.parse(data).id +'">' +
@@ -406,24 +420,34 @@ $(function() {
                 $.post(url, { deleteCat: 1, deleteId: deleteId }, function(data) {
 
                     let result = $.trim(data);
+                    let catTableBodyToDelete = $("table#catsTable >tbody >tr");
+                    let tableCountCatToDelete = catTableBodyToDelete.length;
 
                     overlay.hide();
 
-                    // successful deletion
-                    if(result === "Delete Successful"){
+                    if(tableCountCatToDelete === 1){
 
-                        // get table row
-                        let rowToRemove = $("table#catsTable >tbody >tr#category-"+deleteId+"");
+                        location.reload();
 
-                        // remove row
-                        rowToRemove.remove();
+                    } else {
 
-                        $("p.catSuccessP").html('Category deleted successfully!');
-                        catSuccess.fadeIn('slow', function() {
-                            setTimeout(function(){
-                                catSuccess.fadeOut('slow')
-                            }, 3000);
-                        });
+                        // successful deletion
+                        if(result === "Delete Successful"){
+
+                            // get table row
+                            let rowToRemove = $("table#catsTable >tbody >tr#category-"+deleteId+"");
+
+                            // remove row
+                            rowToRemove.remove();
+
+                            $("p.catSuccessP").html('Category deleted successfully!');
+                            catSuccess.fadeIn('slow', function() {
+                                setTimeout(function(){
+                                    catSuccess.fadeOut('slow')
+                                }, 3000);
+                            });
+
+                        }
 
                     }
 

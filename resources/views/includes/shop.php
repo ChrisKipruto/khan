@@ -7,7 +7,7 @@ if(isset($_POST['bra'])){
     require '../../config/connect.php';
 
     # sql to get brands
-    $sql = "SELECT * FROM brands";
+    $sql = "SELECT * FROM brands ORDER BY RAND() LIMIT 4";
 
     # run sql and store the result
     $result = mysqli_query($conn, $sql);
@@ -34,7 +34,7 @@ if(isset($_POST['cat'])){
     require '../../config/connect.php';
 
     # sql to get category
-    $sql = "SELECT * FROM categories";
+    $sql = "SELECT * FROM categories ORDER BY RAND() LIMIT 4";
 
     # run sql and store the result
     $result = mysqli_query($conn, $sql);
@@ -49,7 +49,6 @@ if(isset($_POST['cat'])){
                 <a href="categories.php?id='.htmlspecialchars($category['id']).'" class="card-link-secondary"> '.htmlspecialchars($category['category_title']).' </a>
             </p>
         ';
-
     }
 
 }

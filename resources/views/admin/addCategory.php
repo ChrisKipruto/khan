@@ -73,9 +73,10 @@ mysqli_close($conn);
                     <?php foreach($categories as $category): ?>
                         <tr class="border-b" id="category-<?php echo htmlspecialchars($category['id']); ?>">
                             <td class="pl-3 cursor-pointer catTd">
-                                <input type="text" value="<?php echo htmlspecialchars($category['category_title']); ?>"
-                                    class="w-64 grey lighten-2 font-semibold black-text px-2 py-2 shadow-sm"
-                                    cid="<?php echo htmlspecialchars($category['id']); ?>" disabled>
+                                <span class="font-bold tracking-wide black-text"
+                                    cid="<?php echo htmlspecialchars($category['id']); ?>">
+                                    <?php echo htmlspecialchars($category['category_title']); ?>
+                                </span>
                             </td>
                             <td class="text-center">
                                 <a href="" class="pr-2 outline-none red-text deleteCat" cid="<?php echo htmlspecialchars($category['id']); ?>">

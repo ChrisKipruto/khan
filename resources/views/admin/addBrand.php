@@ -73,9 +73,8 @@ mysqli_close($conn);
                     <?php foreach($brands as $brand): ?>
                         <tr class="border-b" id="brand-<?php echo htmlspecialchars($brand['id']); ?>">
                             <td class="pl-3 cursor-pointer brandTd">
-                                <input type="text" value="<?php echo htmlspecialchars($brand['brand_title']); ?>"
-                                    class="w-56 grey lighten-2 font-semibold black-text px-2 py-2 shadow-sm brandTitle"
-                                    bid="<?php echo htmlspecialchars($brand['id']); ?>" disabled>
+                                <span class="font-bold tracking-wide black-text"
+                                    bid="<?php echo htmlspecialchars($brand['id']); ?>"><?php echo htmlspecialchars($brand['brand_title']); ?></span>
                             </td>
                             <td class="text-center">
                                 <a href="" class="pr-2 outline-none red-text deleteBrand" bid="<?php echo htmlspecialchars($brand['id']); ?>">

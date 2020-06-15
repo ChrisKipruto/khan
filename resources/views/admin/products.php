@@ -5,6 +5,16 @@
 
 <?php
 
+$msg = '';
+
+# check noid error
+if(isset($_GET['error'])) {
+
+    # get error msg
+    $msg = $_GET['error'];
+
+}
+
 # connect to db
 require '../../config/connect.php';
 
@@ -33,6 +43,17 @@ mysqli_close($conn);
             </a>
         </div>
 
+        <?php if($msg === "noid"): ?>
+            <div class="col-xl-10 col-lg-10 col-md-12 col-sm-12 mb-2">
+                <div class="alert danger-color alert-dismissible fade show" role="alert">
+                    <p class="text-white"> <strong>Error!</strong> You cannot access that page as is</p>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+        <?php endif; ?>
+
         <!-- products table -->
         <div class="col-xl-10 col-lg-10 col-md-12 col-sm-12 mb-3">
             <div class="table-responsive-sm">
@@ -50,17 +71,19 @@ mysqli_close($conn);
                         <?php foreach($products as $product): ?>
                             <tr>
                                 <td>
-                                    <img src="../../../public/uploads/<?php echo htmlspecialchars($product['product_image']); ?>" 
-                                    class="h-16 rounded shadow-md" alt="Product Image">
+                                    <a href="product.php?id=<?php echo htmlspecialchars($product['id']); ?>">
+                                        <img src="../../../public/uploads/<?php echo htmlspecialchars($product['product_image']); ?>" 
+                                        class="h-16 rounded shadow-md" alt="Product Image">
+                                    </a>
                                 </td>
                                 <td><?php echo htmlspecialchars($product['product_title']); ?></td>
                                 <td><?php echo htmlspecialchars($product['product_price']); ?></td>
                                 <td>
-                                    <a href="" class="pr-2 outline-none light-blue-text">
+                                    <a href="product.php?id=<?php echo htmlspecialchars($product['id']); ?>" class="pr-2 outline-none light-blue-text">
                                         <i class="fas fa-info"></i>
                                     </a>
 
-                                    <a href="" class="pr-2 outline-none light-green-text">
+                                    <a href="editProduct.php?id=<?php echo htmlspecialchars($product['id']); ?>" class="pr-2 outline-none light-green-text">
                                         <i class="fas fa-feather"></i>
                                     </a>
 

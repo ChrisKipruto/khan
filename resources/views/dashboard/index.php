@@ -1,7 +1,5 @@
 <?php
 
-
-
 #start session
 session_start();
 if(!isset($_SESSION['id'])){
@@ -9,12 +7,48 @@ if(!isset($_SESSION['id'])){
     header('Location: ../auth/login.php');
     exit();
 
+} else {
+
+    $msg = '';
+
+    # check noid error
+    if(isset($_GET['error'])) {
+
+        # get error msg
+        $msg = $_GET['error'];
+
+    }
+
+    /**
+     * Get products
+    */
+
+    # connect to db
+    require '../../config/connect.php';
+
+    # sql get products
+    $sql = "SELECT * FROM products ORDER BY RAND() LIMIT 6";
+
+    # store result
+    $result = mysqli_query($conn, $sql);
+
+    # fetch the result into in array
+    $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+    # CLOSE THE CONNNECTION AND RELEASE MEMORY
+    mysqli_free_result($result);
+    mysqli_close($conn);
+
+    /////////////////////////////////////////////////
+
 }
 
 $loginSuccess = "";
 
 if(isset($_GET['login'])){
+
     $loginSuccess = htmlspecialchars($_GET['login']);
+
 }
 
 ?>
@@ -53,9 +87,9 @@ if(isset($_GET['login'])){
 
             <section>
 
-                <h5 class="mb-4 uppercase font-semibold">Brands</h5>
+                <h5 class="mb-4 uppercase font-semibold">Categories</h5>
 
-                <div class="text-muted small text-uppercase mb-4 pl-2" id="shopBrands">
+                <div class="text-muted small text-uppercase mb-4 pl-2" id="shopCategories">
                     
                 </div>
 
@@ -63,9 +97,9 @@ if(isset($_GET['login'])){
 
             <section>
 
-                <h5 class="mb-4 uppercase font-semibold">Subcategories</h5>
+                <h5 class="mb-4 uppercase font-semibold">Brands</h5>
 
-                <div class="text-muted small text-uppercase mb-4 pl-2" id="shopCategories">
+                <div class="text-muted small text-uppercase mb-4 pl-2" id="shopBrands">
                     
                 </div>
 
@@ -75,75 +109,43 @@ if(isset($_GET['login'])){
         <!-- products -->
         <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 mb-4">
             <div class="row px-4">
-                <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-3">
-                    <div class="view overlay zoom z-depth-1 cursor-pointer rounded">
-                        <img src="../../../public/img/products/5a.jpg" class="img-fluid" alt="">
-                        <a href="product.php">
-                            <div class="mask waves-effect waves-light">
-                                <img class="img-fluid w-100" src="../../../public/img/products/5b.jpg">
-                                <div class="mask rgba-black-slight waves-effect waves-light"></div>
-                            </div>
-                        </a>
+                <?php if($msg === "noid"): ?>
+                    <div class="col-xl-10 col-lg-10 col-md-12 col-sm-12 mb-2">
+                        <div class="alert danger-color alert-dismissible fade show" role="alert">
+                            <p class="text-white"> <strong>Error!</strong> You cannot access that page as is</p>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
                     </div>
+                <?php endif; ?>
 
-                    <div class="text-center mt-2 text-xl">
-                        <h5 class="font-bold black-text mb-2">
-                            <a href="product.php" class="hover:text-black">
-                                Cashmere Sweater
+                <?php foreach($products as $product): ?>
+                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-3">
+                        <div class="view overlay zoom z-depth-1 cursor-pointer rounded">
+                            <img src="../../../public/uploads/<?php echo htmlspecialchars($product['product_image']); ?>" class="img-fluid" alt="">
+                            <a href="product.php?id=<?php echo htmlspecialchars($product['id'])?>">
+                                <div class="mask waves-effect waves-light">
+                                    <img class="img-fluid w-100" src="../../../public/uploads/<?php echo htmlspecialchars($product['product_image']); ?>">
+                                    <div class="mask rgba-black-slight waves-effect waves-light"></div>
+                                </div>
                             </a>
-                        </h5>
-                        <p class="font-small">
-                            <span class="text-danger mr-1"><strong>Ksh 2,100</strong></span>
-                            <span class="text-grey"><strong><s>Ksh 3,600</s></strong></span>
-                        </p>
-                    </div>
-                </div>
+                        </div>
 
-                <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-3">
-                    <div class="view overlay zoom z-depth-1 cursor-pointer rounded">
-                        <img src="../../../public/img/products/15a.jpg" class="img-fluid" alt="">
-                        <a href="product.php">
-                            <div class="mask waves-effect waves-light">
-                                <img class="img-fluid w-100" src="../../../public/img/products/15.jpg">
-                                <div class="mask rgba-black-slight waves-effect waves-light"></div>
-                            </div>
-                        </a>
+                        <div class="text-center mt-2 text-xl">
+                            <h5 class="font-bold text-sm black-text mb-2">
+                                <a href="product.php?id=<?php echo htmlspecialchars($product['id']); ?>" class="hover:text-black">
+                                    <?php echo htmlspecialchars($product['product_title']); ?>
+                                </a>
+                            </h5>
+                            <p class="font-small">
+                                <span class="text-danger mr-1">
+                                    <strong>Ksh. <?php echo htmlspecialchars($product['product_price'])?></strong>
+                                </span>
+                            </p>
+                        </div>
                     </div>
-
-                    <div class="text-center mt-2 text-xl">
-                        <h5 class="font-bold black-text mb-2">
-                            <a href="product.php" class="hover:text-black">
-                                Black denim jacket
-                            </a>
-                        </h5>
-                        <p class="font-small">
-                            <span class="text-danger mr-1"><strong>Ksh 5,500</strong></span>
-                        </p>
-                    </div>
-                </div>
-
-                <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-3">
-                    <div class="view overlay zoom z-depth-1 cursor-pointer rounded">
-                        <img src="../../../public/img/products/6a.jpg" class="img-fluid" alt="">
-                        <a href="product.php">
-                            <div class="mask waves-effect waves-light">
-                                <img class="img-fluid w-100" src="../../../public/img/products/6b.jpg">
-                                <div class="mask rgba-black-slight waves-effect waves-light"></div>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="text-center mt-2 text-xl">
-                        <h5 class="font-bold black-text mb-2">
-                            <a href="product.php" class="hover:text-black">
-                                Yellow Hoodie
-                            </a>
-                        </h5>
-                        <p class="font-small">
-                            <span class="text-danger mr-1"><strong>Ksh 4,500</strong></span>
-                        </p>
-                    </div>
-                </div>
+                <?php endforeach; ?>
             </div>
         </div>
     </div>
