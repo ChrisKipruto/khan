@@ -28,7 +28,7 @@
                             </th>
 
                             <th class="border-0">
-                                <span class="badge badge-pill badge-success">0</span>
+                                <span class="badge badge-pill badge-success" id="product-count"></span>
                             </th>
                         </tr>
 
@@ -56,7 +56,7 @@
                             </th>
 
                             <th class="border-0">
-                                <span class="badge badge-pill badge-danger">0</span>
+                                <span class="badge badge-pill badge-danger" id="customer-count"></span>
                             </th>
                         </tr>
                     </tbody>
@@ -104,11 +104,11 @@
                 <!-- Products -->
                 <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 mb-4">
                     <div class="bg-gray-300 shadow-md rounded-sm flex-center py-4">
-                        <div class="text-center">
-                            <a href="">
+                        <div class="text-center" id="productTile">
+                            <a href="products.php">
                                 <h2 class="text-gray-700 font-bold mb-1 fa-2x">
                                     <i class="fas fa-folder"></i>
-                                    0
+                                    <span></span>
                                 </h2>
                                 <h4 class="text-gray-700 font-bold">
                                     Products
@@ -121,11 +121,11 @@
                 <!-- Visitors -->
                 <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 mb-4">
                     <div class="bg-gray-300 shadow-md rounded-sm flex-center py-4">
-                        <div class="text-center">
+                        <div class="text-center" id="customerTile">
                             <a href="">
                                 <h2 class="text-gray-700 font-bold mb-1 fa-2x">
                                     <i class="fas fa-signal"></i>
-                                    12,386
+                                    <span></span>
                                 </h2>
                                 <h4 class="text-gray-700 font-bold">
                                     Visitors

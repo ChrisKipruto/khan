@@ -119,3 +119,24 @@ a.hover-black:hover {
     transform: translate(-50%,-50%);
     -ms-transform: translate(-50%,-50%);
   }
+
+  /* nav tabs */
+  .md-tabs {
+    position: relative;
+    z-index: 1;
+    padding: .5rem;
+    margin-right: 1rem;
+    margin-bottom: -20px;
+    margin-left: 1rem;
+    /* background-color: #2bbbad; */
+    border: 0;
+    border-radius: .25rem;
+    -webkit-box-shadow: 0 5px 11px 0 rgba(0,0,0,0.18), 0 4px 15px 0 rgba(0,0,0,0.15);
+    box-shadow: 0 5px 11px 0 rgba(0,0,0,0.18), 0 4px 15px 0 rgba(0,0,0,0.15);
+}
+
+.md-tabs .nav-link.active {
+    background-color: rgba(197,202,233, .6);
+    border-radius: .1em;
+    transition: all ease .3s;
+}

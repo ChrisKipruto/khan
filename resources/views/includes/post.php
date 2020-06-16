@@ -219,6 +219,52 @@ if(isset($_POST['countBra'])){
 
 } /** end count brands */
 
+# count products
+if(isset($_POST['countPro'])){
+
+    # sql get all products
+    $sql = "SELECT * FROM `products`";
+
+    # store result
+    $result = mysqli_query($conn, $sql);
+
+    # count the result
+    $count = mysqli_num_rows($result);
+
+    # return the count
+    echo $count;
+
+    # free up memory
+    mysqli_free_result($result);
+
+    # close connection
+    mysqli_close($conn);
+
+} /** end count products */
+
+# count customers
+if(isset($_POST['countCust'])){
+
+    # sql get all customers
+    $sql = "SELECT * FROM `customers`";
+
+    # store result
+    $result = mysqli_query($conn, $sql);
+
+    # count the result
+    $count = mysqli_num_rows($result);
+
+    # return the count
+    echo $count;
+
+    # free up memory
+    mysqli_free_result($result);
+
+    # close connection
+    mysqli_close($conn);
+
+} /** end count customers */
+
 # get brands
 if(isset($_POST['bra'])){
 

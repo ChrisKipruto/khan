@@ -5,6 +5,16 @@
 
 <?php
 
+$msg = '';
+
+# check noid error
+if(isset($_GET['error'])) {
+
+    # get error msg
+    $msg = $_GET['error'];
+
+}
+
 # connect to db
 require '../../config/connect.php';
 
@@ -61,6 +71,32 @@ mysqli_close($conn);
 
         <!-- cats table -->
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-3">
+            <?php if($msg === 'noid'):?>
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-3">
+                        <div class="alert danger-color alert-dismissible fade show" role="alert">
+                            <p class="text-white"> <strong>Error!</strong> You cannot access that page as is</p>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            <?php endif; ?>
+
+            <?php if($msg === 'nocat'):?>
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-3">
+                        <div class="alert danger-color alert-dismissible fade show" role="alert">
+                            <p class="text-white"> <strong>Error!</strong> Category does not exist exist!</p>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            <?php endif; ?>
+
             <table id="catsTable" class="table table-sm shadow-sm">
                 <thead class="bg-dark text-indigo-100">
                     <tr class="">
@@ -75,7 +111,9 @@ mysqli_close($conn);
                             <td class="pl-3 cursor-pointer catTd">
                                 <span class="font-bold tracking-wide black-text"
                                     cid="<?php echo htmlspecialchars($category['id']); ?>">
-                                    <?php echo htmlspecialchars($category['category_title']); ?>
+                                    <a href="category.php?id=<?php echo htmlspecialchars($category['id']); ?>">
+                                        <?php echo htmlspecialchars($category['category_title']); ?>
+                                    </a>
                                 </span>
                             </td>
                             <td class="text-center">

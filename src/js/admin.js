@@ -24,6 +24,7 @@ $(function() {
 
     $("table#brandsTable").DataTable();
     $("table#catsTable").DataTable();
+    $("table#subCatTable").DataTable();
 
     /**
      * add brand
@@ -121,7 +122,9 @@ $(function() {
 
                     toAppend.after('<tr class="border-b" id="brand-'+JSON.parse(data).id+'"> ' + 
                         '<td class="pl-3 cursor-pointer">' +
-                            '<span class="font-bold tracking-wide black-text" bid="'+ JSON.parse(data).id +'">' + JSON.parse(data).brand_title + '</span>' +
+                            '<span class="font-bold tracking-wide black-text" bid="'+ JSON.parse(data).id +'"> ' + 
+                            '<a href="brand.php?id=' + JSON.parse(data).id + '"> ' + JSON.parse(data).brand_title + ' </a>' +
+                            '</span>' +
                         ' </td>' +
                         '<td class="text-center">' +
                             '<a href="" class="pr-2 outline-none red-text deleteBrand" bid="'+ JSON.parse(data).id +'">' +
@@ -364,7 +367,9 @@ $(function() {
 
                     toAppend.after('<tr class="border-b" id="category-'+JSON.parse(data).id+'"> ' + 
                         '<td class="pl-3 cursor-pointer">' +
-                        '<span class="font-bold tracking-wide black-text" cid="'+ JSON.parse(data).id +'">' + JSON.parse(data).category_title + '</span>' +
+                        '<span class="font-bold tracking-wide black-text" cid="'+ JSON.parse(data).id +'"> ' + 
+                            '<a href="category.php?id=' + JSON.parse(data).id + '"> ' + JSON.parse(data).category_title + ' </a>' +
+                        '</span>' +
                         ' </td>' +
                         '<td class="text-center">' +
                             '<a href="" class="pr-2 outline-none red-text deleteCat" cid="'+ JSON.parse(data).id +'">' +
@@ -498,6 +503,54 @@ $(function() {
 
         }, 500)
     }
+
+    ////////////////////////////////////////////////////////////////////////
+
+
+
+    /**
+     * Products section
+    */
+
+    // count product
+    countProducts();
+    function countProducts() {
+        setInterval(function() {
+
+            let url = "../includes/post.php";
+
+            $.post(url, { countPro: 1 }, function(data) {
+                $('div#productTile h2 span').html(data);
+                $("span#product-count").html(data);
+            });
+
+        }, 500)
+    }
+    // End count product
+
+    ////////////////////////////////////////////////////////////////////////
+
+
+
+    /**
+     * Customers section
+    */
+
+    // count Customers
+    countCustomerss();
+    function countCustomerss() {
+        setInterval(function() {
+
+            let url = "../includes/post.php";
+
+            $.post(url, { countCust: 1 }, function(data) {
+                $('div#customerTile h2 span').html(data);
+                $("span#customer-count").html(data);
+            });
+
+        }, 500)
+    }
+    // End count customers
 
     ////////////////////////////////////////////////////////////////////////
 
