@@ -36,6 +36,7 @@
     <script src="../../../src/js/admin.js"></script>
     <script src="../../../src/js/products.js"></script>
     <script src="../../../src/js/subcategories.js"></script>
+    <script src="../../../src/js/subtypes.js"></script>
     <!-- steps jq -->
     <script src="../../../src/js/free/jquery.steps.min.js"></script>
 </body>

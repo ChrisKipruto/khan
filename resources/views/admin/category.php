@@ -1,6 +1,8 @@
 <?php
 
-    # check is
+    $ErrorMsg = "";
+
+    # check id
     if(!isset($_GET['id'])){
 
         header("Location: addCategory.php?error=noid");
@@ -8,6 +10,14 @@
         exit();
 
     } else {
+
+        # check noid error
+        if(isset($_GET['error'])) {
+
+            # get error msg
+            $ErrorMsg = $_GET['error'];
+
+        }
 
         # get category id
         $category_id = htmlspecialchars($_GET['id']);
@@ -79,6 +89,30 @@
     </div>
 
     <div class="row d-flex justify-center mt-3">
+        <!-- error msg -->
+        <?php if($ErrorMsg === "nosubexist"): ?>
+            <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 mb-3">
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <p class="text-white"> <strong>Error!</strong> That Sub Category does not exist!</p>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+        <?php endif;?>
+        
+        <?php if($ErrorMsg === "nocatexist"): ?>
+            <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 mb-3">
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <p class="text-white"> <strong>Error!</strong> That Category does not exist!</p>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+        <?php endif;?>
+        <!-- end error msg -->
+
         <!-- category tabs -->
         <div class="col-xl-10 col-lg-10 col-md-12 col-sm-12 mb-3">
             <ul class="nav nav-tabs black md-tabs" id="categoryTab" role="tablist">
