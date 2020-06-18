@@ -68,6 +68,18 @@
                                 Products
                             </a>
                         </li>
+
+                        <li class="nav-item">
+                            <a href="<?php echo $path . '/admin/addBrand.php'; ?>" class="nav-link outline-none waves-effect waves-ripple tracking-wide font-navbar">
+                                Brands
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="<?php echo $path . '/admin/addCategory.php'; ?>" class="nav-link outline-none waves-effect waves-ripple tracking-wide font-navbar">
+                                Categories
+                            </a>
+                        </li>
                     </ul>
 
                     <!-- left content -->

@@ -123,10 +123,10 @@ if(isset($_GET['login'])){
                 <?php foreach($products as $product): ?>
                     <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-3">
                         <div class="view overlay zoom z-depth-1 cursor-pointer rounded">
-                            <img src="../../../public/uploads/<?php echo htmlspecialchars($product['product_image']); ?>" class="img-fluid" alt="">
+                            <img src="../../../public/uploads/<?php echo htmlspecialchars($product['front_image']); ?>" class="img-fluid" alt="">
                             <a href="product.php?id=<?php echo htmlspecialchars($product['id'])?>">
                                 <div class="mask waves-effect waves-light">
-                                    <img class="img-fluid w-100" src="../../../public/uploads/<?php echo htmlspecialchars($product['product_image']); ?>">
+                                    <img class="img-fluid w-100" src="../../../public/uploads/<?php echo htmlspecialchars($product['front_image']); ?>">
                                     <div class="mask rgba-black-slight waves-effect waves-light"></div>
                                 </div>
                             </a>

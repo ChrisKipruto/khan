@@ -10,7 +10,7 @@
         $category_id = mysqli_real_escape_string($conn, htmlspecialchars($_POST['categoryId']));
         $subCategory_title = mysqli_real_escape_string($conn, htmlspecialchars($_POST['subCategory']));
 
-        # get brand sql
+        # get category sql
         $sql = "SELECT * FROM categories WHERE id = '$category_id'";
 
         # store result
@@ -103,5 +103,58 @@
         }
 
     } /** end of delete brand */
+
+    # get sub category as per category
+    if(isset($_POST['getSubCat'])) {
+
+        #init category id
+        $categoryId = mysqli_real_escape_string($conn, htmlspecialchars($_POST['categoryId']));
+
+        # get category sql
+        $sql = "SELECT * FROM categories WHERE id = '$categoryId'";
+
+        # store result
+        $result = mysqli_query($conn, $sql);
+
+        # check of result has category
+        if(mysqli_num_rows($result) < 1) {
+
+            echo 'No such Category';
+
+        } else {
+
+            # get sub categories
+            $sql = "SELECT * FROM subcategories WHERE category_id = '$categoryId'";
+
+            # store result
+            $result = mysqli_query($conn, $sql);
+
+            # fetch the result into an array
+            $subCategories = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+            # check run
+            if(!$subCategories){
+
+                echo 'No subcategory';
+
+            } else {
+
+                echo '
+                    <option value=""> Open to Select Sub-Category </opiton>
+                ';
+
+                foreach($subCategories as $subCategory){
+                    echo '
+                        <option value="'.$subCategory['id'].'" cid="'.$subCategory['category_id'].'">
+                            '.$subCategory['subcategory_title'].'
+                        </option>
+                    ';
+                }
+
+            }
+
+        }
+
+    } /** end get sub category as per category */
 
 ?>

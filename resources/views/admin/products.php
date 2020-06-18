@@ -72,7 +72,7 @@ mysqli_close($conn);
                             <tr>
                                 <td>
                                     <a href="product.php?id=<?php echo htmlspecialchars($product['id']); ?>">
-                                        <img src="../../../public/uploads/<?php echo htmlspecialchars($product['product_image']); ?>" 
+                                        <img src="../../../public/uploads/<?php echo htmlspecialchars($product['front_image']); ?>" 
                                         class="h-16 rounded shadow-md" alt="Product Image">
                                     </a>
                                 </td>

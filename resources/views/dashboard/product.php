@@ -48,6 +48,10 @@ if(!isset($_GET['id'])) {
 
     # get brand
     $brand = mysqli_fetch_assoc($run_brand);
+
+    if(!$brand){
+        $b = "Hopefully";
+    }
     /** =============== end get brand =============== */
     
 
@@ -59,6 +63,19 @@ if(!isset($_GET['id'])) {
 
     # get category
     $category = mysqli_fetch_assoc($run_category);
+
+    # get sub cat
+    $subcategory_sql = "SELECT * FROM subcategories WHERE category_id = '$pro_category'";
+
+    # run the sub category sql
+    $run_subcategory = mysqli_query($conn, $subcategory_sql);
+
+    # get category
+    $subcategory = mysqli_fetch_assoc($run_subcategory);
+
+    if(!$subcategory){
+        $sc = "Hopefully";
+    }
     /** =============== end get category =============== */
 
     # free up memory
@@ -88,26 +105,40 @@ if(!isset($_GET['id'])) {
             <!-- col img -->
             <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 mb-4">
                 <div class="view overlay zoom z-depth-1 cursor-pointer rounded mb-3">
-                    <a href="../../../public/uploads/<?php echo htmlspecialchars($product['product_image']); ?>" class="test-popup-link">
-                        <img src="../../../public/uploads/<?php echo htmlspecialchars($product['product_image']); ?>" class="img-fluid" alt="">
+                    <a href="../../../public/uploads/<?php echo htmlspecialchars($product['front_image']); ?>" class="test-popup-link">
+                        <img src="../../../public/uploads/<?php echo htmlspecialchars($product['front_image']); ?>" class="img-fluid" alt="">
                     </a>
                     <!-- <div class="mask waves-effect waves-light"></div> -->
                 </div>
-                <!-- <div class="row">
+                <div class="row">
                     <div class="col-3">
-                      <div class="view overlay rounded z-depth-1 gallery-item hoverable">
-                        <a href="../../../public/img/products/6e.jpg" class="test-popup-link">
-                            <img src="../../../public/img/products/6e.jpg" class="img-fluid" alt="">
-                        </a>
-                      </div>
+                        <div class="view overlay rounded z-depth-1 gallery-item hoverable">
+                            <a href="../../../public/uploads/<?php echo htmlspecialchars($product['side_image']); ?>" class="test-popup-link">
+                                <img src="../../../public/uploads/<?php echo htmlspecialchars($product['side_image']); ?>" class="img-fluid" alt="">
+                            </a>
+                        </div>
                     </div>
-                </div> -->
+
+                    <div class="col-3">
+                        <div class="view overlay rounded z-depth-1 gallery-item hoverable">
+                            <a href="../../../public/uploads/<?php echo htmlspecialchars($product['back_image']); ?>" class="test-popup-link">
+                                <img src="../../../public/uploads/<?php echo htmlspecialchars($product['back_image']); ?>" class="img-fluid" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- col des -->
             <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-4">
                 <h5 class="text-sm black-text font-bold mb-2">
-                    <?php echo htmlspecialchars($brand['brand_title']); ?>
+                    <?php
+                        if($brand) {
+                            echo htmlspecialchars($brand['brand_title']) . ' ' . htmlspecialchars($subcategory['subcategory_title']);
+                        } else {
+                            echo htmlspecialchars($subcategory['subcategory_title']);
+                        }
+                    ?>
                 </h5>
 
                 <h5 class="text-xl black-text font-bold mb-2">
@@ -118,13 +149,14 @@ if(!isset($_GET['id'])) {
                     <?php echo htmlspecialchars($category['category_title']); ?>
                 </p>
 
-                <p class="font-bold mt-2">
-                    <span class="mr-1">Ksh
+                <p class="font-bold mt-2 green-text pb-2">
+                    <span class="mr-1">
+                       <span class="green-text"> Retail Price:</span> Ksh
                         <?php echo htmlspecialchars($product['product_price']); ?>
                     </span>
                 </p>
 
-                <p class="pt-2 mb-3">
+                <p class="pt-2 mb-3 text-sm">
                     <?php echo htmlspecialchars($product['product_description']); ?>
                 </p>
 
