@@ -117,14 +117,14 @@
         <div class="col-xl-10 col-lg-10 col-md-12 col-sm-12 mb-3">
             <ul class="nav nav-tabs black md-tabs" id="categoryTab" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link active white-text border-0 font-semibold" id="home-tab" 
+                    <a class="nav-link white-text border-0 font-semibold" id="home-tab" 
                         data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">
                         Category
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link white-text border-0 font-semibold" id="subCategory-tab" 
+                    <a class="nav-link active white-text border-0 font-semibold" id="subCategory-tab" 
                         data-toggle="tab" href="#subCategory" role="tab" aria-controls="subCategory" aria-selected="false">
                         Sub categories
                     </a>
@@ -135,7 +135,7 @@
             <div class="tab-content card pt-3" id="categoryTabContent">
 
                 <!-- home tab -->
-                <div class="tab-pane fade show active px-3 py-3" id="home" 
+                <div class="tab-pane fade px-3 py-3" id="home" 
                     role="tabpanel" aria-labelledby="home-tab">
                     <div class="mx-3 my-3">
                         <div class="row d-flex justify-content-start">
@@ -155,7 +155,7 @@
                 </div> <!-- end home tab -->
 
                 <!-- home tab -->
-                <div class="tab-pane fade px-3 py-3" id="subCategory" 
+                <div class="tab-pane fade show active px-3 py-3" id="subCategory" 
                     role="tabpanel" aria-labelledby="subCategory-tab">
                     <div class="mx-3 my-3">
                         <div class="row d-flex justify-center">

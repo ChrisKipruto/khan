@@ -80,6 +80,25 @@
                                 Categories
                             </a>
                         </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle tracking-wide font-navbar" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-tape pr-2"></i>
+                                Size Guides
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-info p-2" 
+                                aria-labelledby="navbarDropdown">
+                                <a href="<?php echo $path . '/admin/measurements.php'; ?>" class="dropdown-item outline-none hover:shadow-md
+                                    hover:bg-indigo-500 hover-white hover:text-white">
+                                    Measurements
+                                </a>
+
+                                <a href="<?php echo $path . '/admin/sizeChart.php'; ?>" class="dropdown-item outline-none hover:shadow-md
+                                    hover:bg-indigo-500 hover-white hover:text-white">
+                                    Size Charts
+                                </a>
+                            </div>
+                        </li>
                     </ul>
 
                     <!-- left content -->
