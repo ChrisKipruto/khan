@@ -144,3 +144,13 @@ a.hover-black:hover {
 .accordion-gradient-bcg {
     background: linear-gradient(45deg,rgba(234,21,129,0.6),rgba(10,23,187,0.6) 100%);
 }
+
+
+/* women shoe details */
+#countryColumn {
+    display: none;
+}
+
+#heelColumn {
+    display: none;
+}
