@@ -132,7 +132,7 @@
             </ul>
 
             <!-- tab content -->
-            <div class="tab-content card pt-3" id="categoryTabContent">
+            <div class="tab-content  pt-3" id="categoryTabContent">
 
                 <!-- home tab -->
                 <div class="tab-pane fade px-3 py-3" id="home" 

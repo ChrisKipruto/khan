@@ -38,7 +38,7 @@
     <header>
 
         <!-- admin navbar -->
-        <nav class="navbar navbar-expand-lg navbar-light indigo lighten-4 shadow-none">
+        <nav class="navbar navbar-expand-lg navbar-light indigo lighten-4 shadow-none fixed-top">
             <div class="container-fluid">
                 <!-- brand logo -->
                 <a href="<?php echo $_SERVER['PHP_SELF']; ?>" class="navbar-brand outline-none d-flex align-items-center">
@@ -114,7 +114,7 @@
         </nav>
 
         <!-- intro banner -->
-        <div class="w-full bg-dark h-20 z-depth-1 d-flex justify-center align-items-center white-text">
+        <div class="w-full bg-dark h-20 z-depth-1 d-flex justify-center align-items-center white-text z-40 mt-12 fixed">
             <div class="w-1/2 h-full d-flex align-items-center">
                 <h4 class="text-lg font-semibold text-gray-200">
                     <i class="fas fa-tools"></i>
@@ -143,6 +143,6 @@
 
     </header>
 
-    <main>
+    <main class="mt-32">
 
         <!-- container section -->

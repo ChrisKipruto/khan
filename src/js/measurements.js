@@ -1,232 +1,108 @@
 $(function() {
 
+    // constants
+    const overlay = $("#overlay");
+
+    // add data table
+    $("table#babyShoesTable").DataTable();
+
     /**
-     * Measurements
+     * Add Baby shoes
     */
+   
+        // declare baby shoes details
+        let babyShoeCountry = $("#babyShoeCountry");
+        let babyShoeSizes = $("#babyShoeSizes");
 
-    const preload = $("span#preload");
-    let gender = $("select#gender");
-    let measurementCategory = $("select#measurementCategory");
-    let measurementSubCategory = $("select#measurementSubCategory");
-    let measurementSubType = $("select#measurementSubType");
-    let measurementSize = $("#measurementSize");
-    let measurementWaist = $("#measurementWaist");
-    let measurementLength = $("#measurementLength");
-    let measurementChest = $("#measurementChest");
-    let measurementHip = $("#measurementHip");
-    let measurementShoeSize = $("#measurementShoeSize");
-    let addMeasurementBtn = $("#addMeasurementBtn");
-    let addMeasurementForm = $("#addMeasurementForm");
+        // add button baby shoes
+        let addBabyShoeBtn = $("#addBabyShoeBtn");
 
-    // on change gender
-    gender.on('change', function() {
+        // on keyup baby shoe country
+        babyShoeCountry.on('keyup', function(e) {
 
-        // check gender
-        if(gender.val() === "") {
-            $("p.gender-help").html('Please Select Gender');
-        } else {
-            $("p.gender-help").html('');
-        }
+            // check key code
+            if(e.keyCode === 13) {
+                addBabyShoeBtn.click();
+                console.log('event');
+            } else {
 
-    });
+                // check if empty
+                if(babyShoeCountry.val() == "") {
+                    $("p.babyShoeCountry-help").html('Country is Required.');
+                } else {
+                    $("p.babyShoeCountry-help").html('');
+                }
 
-    // on change get sub cat
-    measurementCategory.on('change', function(e) {
+            }
 
-        let catId = measurementCategory.val();
+        });
 
-        if(catId == ""){
-            $("p.measureCat-help").html("Please select valid category");
-            measurementSubCategory.html('');
-            measurementSubType.html('');
-        } else {
+        // on keyup baby shoe sizes
+        babyShoeSizes.on('keyup', function(event) {
 
-            $("p.measureCat-help").html("");
+            // check if empty
+            if(babyShoeSizes.val() == "") {
+                $("p.babyShoeSizes-help").html('Shoe Sizes are Required.');
+            } else {
+                $("p.babyShoeSizes-help").html('');
+            }
 
-            let url = "../includes/addMeasurement.php";
+        });
 
-            preload.show();
+        // on click add baby shoe btn
+        addBabyShoeBtn.on('click', function (e) {
 
-            $.post(url, { getSubCategory: 1, catId: catId }, function(data) {
+            let country = babyShoeCountry.val();
+            let shoeSize = babyShoeSizes.val();
 
-                var result = $.trim(data);
+            // check fields empty
+            if(country == "" || shoeSize == "") {
+                $("p.danger-msg-p").html('Please fill the fields below. All are required.');
+                $(".danger-msg").fadeIn();
+                return false;
+            }
 
-                preload.hide();
+            // shoe sizes
+            if(!/^\d+(,\d+)*$/.test(shoeSize)) {
+                $("p.babyShoeSizes-help").html('Shoe Sizes must be separated with a comma.');
+                return false;
+            }
 
-                measurementSubType.html('');
+            let url = "../includes/addMeasurements.php";
 
-                // no category
-                if(result === "No such Category") {
-                    $("p.measureCat-help").html("No such Category");
-                    measurementSubCategory.html(data);
-                    measurementSubType.html('');
+            overlay.show();
+
+            $.post(url, { addBabyShoe: 1, country: country, shoeSize: shoeSize }, function(data) {
+
+                overlay.hide();
+
+                let result = $.trim(data);
+
+                // country exist
+                if(result === "Country exist"){
+                    $("p.danger-msg-p").html('Country already exists.');
+                    $(".danger-msg").fadeIn();
                     return false;
                 }
 
-                // no sub category
-                if(result === "No subcategory") {
-                    $("p.measureCat-help").html("No subcategory");
-                    measurementSubCategory.html(data);
-                    measurementSubType.html('');
+                // success
+                if(result === "success") {
+                    $("p.success-msg-p").html('Success! Baby shoe details has been added.');
+                    $(".success-msg").fadeIn();
                     return false;
                 }
 
-                measurementSubCategory.html(data);
+                // failed
+                if( result === "failed") {
+                    $("p.danger-msg-p").html('Failed to insert.');
+                    $(".danger-msg").fadeIn();
+                    return false;
+                }
 
             });
 
-        }
+        });
 
-    });
-
-    // on change get sub cat
-    measurementSubCategory.on('change', function(e) {
-
-        let subcatId = measurementSubCategory.val();
-
-        if(subcatId == ""){
-            $("p.measureSubCat-help").html("Please select valid sub-category");
-            measurementSubType.html('');
-        } else {
-
-            $("p.measureSubCat-help").html("");
-
-            let url = "../includes/addMeasurement.php";
-
-            preload.show();
-
-            $.post(url, { getSubType: 1, subcatId: subcatId }, function(data) {
-
-                var result = $.trim(data)
-
-                preload.hide();
-
-                // no sub type
-                if(result === "No sub type") {
-                    $("p.measureSubCat-help").html("No sub type");
-                    measurementSubType.html(data);
-                    return false;
-                }
-
-                measurementSubType.html(data);
-
-            });
-
-        }
-
-    });
-
-    //  on change sub type
-    measurementSubType.on('change', function() {
-
-        // check gender
-        if(measurementSubType.val() === "") {
-            $("p.measureSubType-help").html('Please Select the product sub type');
-        } else {
-            $("p.measureSubType-help").html('');
-        }
-
-    });
-
-    // on key up
-    measurementSize.on('keyup', function(e) {
-
-        // check key code
-        if(e.keyCode === 13) {
-            addMeasurementBtn.click();
-        }
-
-    });
-
-    // on key up
-    measurementWaist.on('keyup', function(e) {
-
-        // check key code
-        if(e.keyCode === 13) {
-            addMeasurementBtn.click();
-        }
-
-    });
-
-    // on key up
-    measurementLength.on('keyup', function(e) {
-
-        // check key code
-        if(e.keyCode === 13) {
-            addMeasurementBtn.click();
-        }
-
-    });
-
-    // on key up
-    measurementChest.on('keyup', function(e) {
-
-        // check key code
-        if(e.keyCode === 13) {
-            addMeasurementBtn.click();
-        }
-
-    });
-
-    // on key up
-    measurementHip.on('keyup', function(e) {
-
-        // check key code
-        if(e.keyCode === 13) {
-            addMeasurementBtn.click();
-        }
-
-    });
-
-    // on key up
-    measurementShoeSize.on('keyup', function(e) {
-
-        // check key code
-        if(e.keyCode === 13) {
-            addMeasurementBtn.click();
-        }
-
-    });
-
-    // on submit measurement info
-    addMeasurementForm.on('submit', function(e) {
-
-        e.preventDefault();
-
-        // check gender
-        if(gender.val() === "") {
-            $("p.gender-help").html('Please Select Gender');
-            return false;
-        } else {
-            $("p.gender-help").html('');
-        }
-
-        // check measurement
-        if(measurementCategory.val() === "") {
-            $("p.measureCat-help").html('Please Select the product category');
-            return false;
-        } else {
-            $("p.measureCat-help").html('');
-        }
-
-        // check measureSubCat
-        if(measurementSubCategory.val() === "") {
-            $("p.measureSubCat-help").html('Please Select the product sub category');
-            return false;
-        } else {
-            $("p.measureSubCat-help").html('');
-        }
-
-        // check gender
-        if(measurementSubType.val() === "") {
-            $("p.measureSubType-help").html('Please Select the product sub type');
-            return false;
-        } else {
-            $("p.measureSubType-help").html('');
-        }
-
-    });
-
-    //////////////////////////////////////////////////////////////////////////
+    /**End add baby shoes*/ /////////////////////////////////////
 
 });

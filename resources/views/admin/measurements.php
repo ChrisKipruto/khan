@@ -3,25 +3,103 @@
     # connect to db
     require "../../config/connect.php";
 
-    # get gender list from table
-    $sql = "SELECT * FROM genders";
+    /**
+     * Baby shoes 
+    */
 
-    # store gender result
-    $result = mysqli_query($conn, $sql);
+        # get baby shoes from table
+        $sql = "SELECT * FROM baby_shoes";
 
-    # fetch result into an array
-    $genders = mysqli_fetch_all($result, MYSQLI_ASSOC);
+        # store result
+        $result = mysqli_query($conn, $sql);
 
-    //////////////////////////////////////////////////////////////////////////
+        # fetch baby shoes results into an array
+        $babyShoes = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-    # get list categories
-    $sql = "SELECT * FROM categories WHERE category_title='Fashion'";
+        $baby_shoe_array = array();
 
-    # store result of categories
-    $result = mysqli_query($conn, $sql);
+    /* End baby shoes *//////////////////////////////////////
 
-    # fetch categories into an array
-    $categories = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    /**
+     * Women's shoes 
+    */
+
+        # get women's shoes from table
+        $sql = "SELECT * FROM women_shoe_sizes";
+
+        # store result
+        $result = mysqli_query($conn, $sql);
+
+        # fetch women's shoes results into an array
+        $womenShoes = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+    /* End women's shoes *///////////////////////////////////
+
+    /**
+     * Men's shoes 
+    */
+
+        # get men's shoes from table
+        $sql = "SELECT * FROM men_shoe_sizes";
+
+        # store result
+        $result = mysqli_query($conn, $sql);
+
+        # fetch men's shoes results into an array
+        $menShoes = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+    /* End Men's shoes *////////////////////////////////////
+
+    /**
+     * Dress  
+    */
+
+        # get dress from table
+        $sql = "SELECT * FROM dress_sizes";
+
+        # store result
+        $result = mysqli_query($conn, $sql);
+
+        # fetch dress results into an array
+        $menShoes = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+    /* End Dress *//////////////////////////////////////////
+
+    /**
+     * Women's Pants 
+    */
+
+        # get women's pants from table
+        $sql = "SELECT * FROM women_pants_sizes";
+
+        # store result
+        $result = mysqli_query($conn, $sql);
+
+        # fetch  women's pants results into an array
+        $womenPants = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+    /* End Women's Pants*///////////////////////////////////
+
+    /**
+     * Men's Pants  
+    */
+
+        # get men's pants from table
+        $sql = "SELECT * FROM men_pants_sizes";
+
+        # store result
+        $result = mysqli_query($conn, $sql);
+
+        # fetch  men's pants results into an array
+        $menPants = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+    /* End Men's Pants *////////////////////////////////////
+
+    # free result from memory
+    mysqli_free_result($result);
+
+    # close connection
+    mysqli_close($conn);
 
 ?>
 
@@ -32,191 +110,149 @@
 
 <div class="container-fluid">
     <div class="row d-flex justify-center mt-3">
-        <div class="col-xl-11 col-lg-11 col-md-12 col-sm-12 mb-3">
-            <ul class="nav nav-tabs black z-depth-1 md-tabs" id="addMeasurementsTab" role="table">
+        <div class="col-xl-10 col-lg-10 col-md-12 col-sm-12 mb-3">
+            <ul class="nav nav-tabs black md-tabs" id="categoryTab" role="tablist">
                 <li class="nav-item">
-                    <a href="#addMeasurement" class="nav-link active white-text font-semibold border-0"
-                        data-toggle="tab" aria-controls="addMeasurement" aria-selected="ture">
-                        Add Measurement
+                    <a class="nav-link active white-text border-0 font-semibold" id="home-tab" 
+                        data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">
+                        Baby/Kids Shoes
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="#measurement" class="nav-link white-text font-semibold border-0"
-                        data-toggle="tab" aria-controls="measurement" aria-selected="false">
-                        Measurements
+                    <a class="nav-link white-text border-0 font-semibold" id="womenShoes-tab" 
+                        data-toggle="tab" href="#womenShoes" role="tab" aria-controls="womenShoes" aria-selected="false">
+                        Women's Shoes
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link white-text border-0 font-semibold" id="menShoes-tab" 
+                        data-toggle="tab" href="#menShoes" role="tab" aria-controls="menShoes" aria-selected="false">
+                        Mens's Shoes
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link white-text border-0 font-semibold" id="dresses-tab" 
+                        data-toggle="tab" href="#dresses" role="tab" aria-controls="dresses" aria-selected="false">
+                        Dresses
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link white-text border-0 font-semibold" id="womenPants-tab" 
+                        data-toggle="tab" href="#womenPants" role="tab" aria-controls="womenPants" aria-selected="false">
+                        Women's Pants
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link white-text border-0 font-semibold" id="menPants-tab" 
+                        data-toggle="tab" href="#menPants" role="tab" aria-controls="menPants" aria-selected="false">
+                        Men's Pants
                     </a>
                 </li>
             </ul>
 
-            <div class="tab-content card z-depth-1 pt-3">
-                <!-- add measurement -->
-                <div class="tab-pane fade show active px-3 py-3" id="addMeasurement">
-                    <form action="" id="addMeasurementForm">
-                    <div class="row mt-3">
-                            <!-- divider -->
-                            <div class="col-md-12 mb-3">
-                                <h4 class="font-navbar text-sm pb-3">
-                                    Product Details
-                                </h4>
+            <!-- tab content -->
+            <div class="tab-content  pt-3" id="categoryTabContent">
 
-                                <hr class="pb-2" />
-                            </div>
-                            
-                            <!-- gender -->
-                            <div class="col-md-4 mb-4">
-                                <label for="gender" class="font-navbar">Gender</label>
-                                <select name="gender" id="gender"
-                                    class="browser-default custom-select z-depth-1 mb-2">
-                                    <option value="">Select Gender</option>
-                                    <?php foreach($genders as $gender):?>
-                                        <option value="<?php echo htmlspecialchars($gender['id']); ?>">
-                                            <?php echo htmlspecialchars($gender['gender_title']); ?>
-                                        </option>
-                                    <?php endforeach;?>
-                                </select>
-                                <p class="font-bold red-text font-small gender-help"></p>
-                            </div>
+                <!-- baby shoes tab -->
+                <div class="tab-pane show fade active px-2 py-2" id="home" 
+                    role="tabpanel" aria-labelledby="home-tab">
+                    <div class="mx-2 my-2">
+                        <div class="row d-flex justify-center">
+                            <!-- check if baby shoes measurements exit -->
+                            <?php if(!$babyShoes): ?>
+                                <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 mb-3">
+                                    <p>There are no baby shoe sizes added yet!</p>
+                                    <a href="addBabyShoes.php" 
+                                        class="btn btn-md indigo lighten-4 
+                                        black-text tracking-wider font-bold">
+                                        <i class="fas fa-feather pr-2"></i>
+                                        Add
+                                    </a>
+                                </div>
+                            <?php else: ?>
+                                <div class="col-xl-10 col-lg-10 col-md-12 col-sm-12 mb-3">
+                                    <a href="addBabyShoes.php" 
+                                        class="btn btn-md indigo lighten-4 
+                                        black-text tracking-wider font-bold">
+                                        <i class="fas fa-feather pr-2"></i>
+                                        Add
+                                    </a>
+                                    <table id="babyShoesTable" class="table table-striped table-sm">
+                                        <thead class="">
+                                            <tr>
+                                                <?php foreach($babyShoes as $babyShoe): ?>
+                                                    <th> <?php echo htmlspecialchars($babyShoe['country']); ?> </th>
+                                                <?php endforeach; ?>
+                                            </tr>
+                                        </thead>
 
-                            <!-- categories -->
-                            <div class="col-md-4 mb-4">
-                                <label for="measurementCategory" class="font-navbar">Product Category</label>
-                                <select name="measurementCategory" id="measurementCategory"
-                                    class="browser-default custom-select z-depth-1 mb-2">
-                                    <option value="">Select categories</option>
-                                    <?php foreach($categories as $category):?>
-                                        <option value="<?php echo htmlspecialchars($category['id']); ?>">
-                                            <?php echo htmlspecialchars($category['category_title']); ?>
-                                        </option>
-                                    <?php endforeach;?>
-                                </select>
-                                <span id="preload">
-                                    <div class="d-flex align-items-center">
-                                        <img src="../../../public/img/5.gif" class="h-8 pr-2" alt="">
-                                        <span class="font-small font-semibold light-blue-text">Fetching Sub-categories</span>
-                                    </div>
-                                </span>
-                                <p class="font-bold red-text font-small measureCat-help"></p>
-                            </div>
-
-                            <!-- subcategories -->
-                            <div class="col-md-4 mb-4">
-                                <label for="measurementSubCategory" class="font-navbar">Product SubCategory</label>
-                                <select name="measurementSubCategory" id="measurementSubCategory"
-                                    class="browser-default custom-select z-depth-1 mb-2">
-                                    
-                                </select>
-                                <span id="preload">
-                                    <div class="d-flex align-items-center">
-                                        <img src="../../../public/img/5.gif" class="h-8 pr-2" alt="">
-                                        <span class="font-small font-semibold light-blue-text">Fetching Sub-categories</span>
-                                    </div>
-                                </span>
-                                <p class="font-bold red-text font-small measureSubCat-help"></p>
-                            </div>
-
-                            <!-- divider -->
-                            <div class="col-md-12 mb-3">
-                                <h4 class="font-navbar text-sm pb-3">
-                                    Measurement Details
-                                    <small class="lowercase text-xs">If measurement not applicable enter 
-                                        <strong class="uppercase red-text">N/A</strong>
-                                    </small>
-                                </h4>
-
-                                <hr class="pb-2" />
-                            </div>
-
-                            <!-- subcategories -->
-                            <div class="col-md-4 mb-4">
-                                <label for="measurementSubType" class="font-navbar">Product SubType</label>
-                                <select name="measurementSubType" id="measurementSubType"
-                                    class="browser-default custom-select z-depth-1 mb-2">
-                                    
-                                </select>
-                                <p class="font-bold red-text font-small measureSubType-help"></p>
-                            </div>
-
-                            <!-- size -->
-                            <div class="col-md-4 mb-4">
-                                <label for="measurementSize" style="font-size: 13px;"
-                                    class="font-bold">
-                                    <span class="uppercase">Size</span>
-                                </label>
-                                <input type="text" id="measurementSize" name="measurementSize"
-                                        placeholder="e.g. XL, XXL"
-                                    class="form-control z-depth-1">
-                            </div>
-
-                            <!-- Waist -->
-                            <div class="col-md-4 mb-4">
-                                <label for="measurementWaist" style="font-size: 13px;"
-                                    class="font-bold">
-                                    <span class="uppercase">Waist</span>
-                                </label>
-                                <input type="text" id="measurementWaist" name="measurementWaist"
-                                        placeholder="Measurement in inches"
-                                    class="form-control z-depth-1">
-                            </div>
-
-                            <!-- Length -->
-                            <div class="col-md-4 mb-4">
-                                <label for="measurementLength" style="font-size: 13px;"
-                                    class="font-bold">
-                                    <span class="uppercase">Length</span>
-                                </label>
-                                <input type="text" id="measurementLength" name="measurementLength"
-                                        placeholder="Measurement in inches"
-                                    class="form-control z-depth-1">
-                            </div>
-
-                            <!-- Chest -->
-                            <div class="col-md-4 mb-4">
-                                <label for="measurementChest" style="font-size: 13px;"
-                                    class="font-bold">
-                                    <span class="uppercase">Chest</span>
-                                </label>
-                                <input type="text" id="measurementChest" name="measurementChest"
-                                        placeholder="Measurement in inches"
-                                    class="form-control z-depth-1">
-                            </div>
-
-                            <!-- Hip -->
-                            <div class="col-md-4 mb-4">
-                                <label for="measurementHip" style="font-size: 13px;"
-                                    class="font-bold">
-                                    <span class="uppercase">Hip</span>
-                                </label>
-                                <input type="text" id="measurementHip" name="measurementHip"
-                                        placeholder="Measurement in inches"
-                                    class="form-control z-depth-1">
-                            </div>
-
-                            <!-- ShoeSize -->
-                            <div class="col-md-4 mb-4">
-                                <label for="measurementShoeSize" style="font-size: 13px;"
-                                    class="font-bold">
-                                    <span class="uppercase">ShoeSize</span>
-                                </label>
-                                <input type="text" id="measurementShoeSize" name="measurementShoeSize"
-                                        placeholder="Measurement in inches"
-                                    class="form-control z-depth-1">
-                            </div>
-
-                            <!-- ShoeSize -->
-                            <div class="col-md-4 mb-4">
-                                <button class="btn btn-indigo" id="addMeasurementBtn">
-                                    Add Measurement
-                                </button>
-                            </div>
+                                        <tbody>
+                                            <?php $bsC = count(explode(',', $babyShoe['size'])); ?>
+                                            <?php for($i = 0; $i < $bsC; $i++): ?>
+                                                <tr>
+                                                <?php foreach($babyShoes as $babyShoe): ?>
+                                                    <td>
+                                                        <?php
+                                                            $b = explode(',', $babyShoe['size']);
+                                                            $c = array_merge($baby_shoe_array, $b);
+                                                            print_r($c[$i]);
+                                                        ?>
+                                                    </td>
+                                                <?php endforeach; ?>
+                                                </tr>
+                                            <?php endfor; ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            <?php endif; ?>
                         </div>
-                    </form>
-                </div>
+                    </div>
+                </div> <!-- end baby shoes tab -->
 
-                <!--  measurement -->
-                <div class="tab-pane fade px-3 py-3" id="measurement">
-                    measure
-                </div>
+                <!-- women's shoes tab -->
+                <div class="tab-pane fade px-2 py-2" id="womenShoes" 
+                    role="tabpanel" aria-labelledby="womenShoes-tab">
+                    <div class="mx-3 my-3">
+                        Lorem, ipsum dolor.
+                    </div>
+                </div> <!-- end women's shoes tab -->
+
+                <!-- men's shoes tab -->
+                <div class="tab-pane fade px-2 py-2" id="menShoes" 
+                    role="tabpanel" aria-labelledby="menShoes-tab">
+                    <div class="mx-3 my-3">
+                        Lorem, ipsum dolor.
+                    </div>
+                </div> <!-- end men's shoes tab -->
+
+                <!-- Dresses tab -->
+                <div class="tab-pane fade px-2 py-2" id="dresses" 
+                    role="tabpanel" aria-labelledby="dresses-tab">
+                    <div class="mx-3 my-3">
+                        Lorem, ipsum dolor.
+                    </div>
+                </div> <!-- end Dresses tab -->
+
+                <!-- Women's Pants tab -->
+                <div class="tab-pane fade px-2 py-2" id="womenPants" 
+                    role="tabpanel" aria-labelledby="womenPants-tab">
+                    <div class="mx-3 my-3">
+                        Lorem, ipsum dolor.
+                    </div>
+                </div> <!-- end Women's Pants tab -->
+
+                <!-- Mens's Pants tab -->
+                <div class="tab-pane fade px-2 py-2" id="menPants" 
+                    role="tabpanel" aria-labelledby="menPants-tab">
+                    <div class="mx-3 my-3">
+                        Lorem, ipsum dolor.
+                    </div>
+                </div> <!-- end Mens's Pants tab -->
             </div>
         </div>
     </div>
