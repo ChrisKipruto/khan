@@ -298,7 +298,7 @@
 
                                             <div id="womenShoeAccordionCollapeTwo" class="collapse" aria-labelledby="womenShoeAccordionHeadingTwo" data-parent="#womenShoeAccordion">
                                                 <div class="card-body">
-                                                                        
+                                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id, maxime?                 
                                                 </div>
                                             </div>
                                             </div>
