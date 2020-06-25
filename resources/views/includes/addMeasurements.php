@@ -123,4 +123,179 @@
 
     /**End add Womens Shoes*/ /////////////////////////////////////
 
+
+    /**
+     * Add mens shoes
+    */
+
+        if(isset($_POST['addMensShoes'])) {
+
+            # init mens shoes details
+            $size = mysqli_real_escape_string($conn, htmlspecialchars($_POST['menSize']));
+            $country = mysqli_real_escape_string($conn, htmlspecialchars($_POST['menCountry']));
+
+            # check if country already exist
+            $sql = "SELECT * FROM men_shoe_sizes WHERE country = '$country'";
+
+            # store result of check
+            $result = mysqli_query($conn, $sql);
+
+            # count the result
+            if(mysqli_num_rows($result) > 0) {
+                echo 'country exist'; 
+            } else {
+
+                # insert into table
+                $insert = "INSERT INTO `men_shoe_sizes`(`country`, `Size`) 
+                VALUES ('$country', '$size')";
+
+                # run
+                $run = mysqli_query($conn, $insert);
+
+                # check
+                if($run) {
+                    echo 'success';
+                } else {
+                    echo 'failed';
+                }
+
+            }
+
+        }
+
+    /**End add mens shoes*/ /////////////////////////////////////
+
+
+
+
+    /**
+     * Add dress 
+    */
+
+    if(isset($_POST['addDress'])) {
+
+        # init dress  details
+        $size = mysqli_real_escape_string($conn, htmlspecialchars($_POST['dSize']));
+        $chest = mysqli_real_escape_string($conn, htmlspecialchars($_POST['dChest']));
+        $waist = mysqli_real_escape_string($conn, htmlspecialchars($_POST['dWaist']));
+        $hip = mysqli_real_escape_string($conn, htmlspecialchars($_POST['dHip']));
+
+        # check if country already exist
+        $sql = "SELECT * FROM dress_sizes WHERE size = '$size'";
+
+        # store result of check
+        $result = mysqli_query($conn, $sql);
+
+        # count the result
+        if(mysqli_num_rows($result) > 0) {
+            echo 'size exist'; 
+        } else {
+
+            # insert into table
+            $insert = "INSERT INTO `dress_sizes`(`size`, `chest`, `waist`, `hip`)
+                VALUES ('$size', '$chest', '$waist', '$hip')";
+
+            # run
+            $run = mysqli_query($conn, $insert);
+
+            # check
+            if($run) {
+                echo 'success';
+            } else {
+                echo 'failed';
+            }
+
+        }
+
+    }
+
+    /**End add dress */ ///////////////////////////////////////////
+
+
+
+    /**
+     * Add dress 
+    */
+
+    if(isset($_POST['addWomenPants'])) {
+
+        # init dress  details
+        $size = mysqli_real_escape_string($conn, htmlspecialchars($_POST['dSize']));
+        $waist = mysqli_real_escape_string($conn, htmlspecialchars($_POST['dWaist']));
+        $bust = mysqli_real_escape_string($conn, htmlspecialchars($_POST['dBust']));
+        $hip = mysqli_real_escape_string($conn, htmlspecialchars($_POST['dHip']));
+
+        # check if size already exist
+        $sql = "SELECT * FROM women_pants_sizes WHERE size = '$size'";
+
+        # store result of check
+        $result = mysqli_query($conn, $sql);
+
+        # count the result
+        if(mysqli_num_rows($result) > 0) {
+            echo 'size exist'; 
+        } else {
+
+            # insert into table
+            $insert = "INSERT INTO `women_pants_sizes`(`size`, `bust`, `waist`, `hip`)
+                VALUES ('$size', '$bust', '$waist', '$hip')";
+
+            # run
+            $run = mysqli_query($conn, $insert);
+
+            # check
+            if($run) {
+                echo 'success';
+            } else {
+                echo 'failed';
+            }
+
+        }
+
+    }
+
+    /**End add dress */ ///////////////////////////////////////////
+
+
+    /**
+     * Add men's pants 
+    */
+
+    if(isset($_POST['addMenPants'])) {
+
+        # init men's pants  details
+        $size = mysqli_real_escape_string($conn, htmlspecialchars($_POST['dSize']));
+        $waist = mysqli_real_escape_string($conn, htmlspecialchars($_POST['dWaist']));
+
+        # check if size already exist
+        $sql = "SELECT * FROM men_pants_sizes WHERE size = '$size'";
+
+        # store result of check
+        $result = mysqli_query($conn, $sql);
+
+        # count the result
+        if(mysqli_num_rows($result) > 0) {
+            echo 'size exist'; 
+        } else {
+
+            # insert into table
+            $insert = "INSERT INTO `men_pants_sizes`(`size`, `waist`)
+                VALUES ('$size', '$waist')";
+
+            # run
+            $run = mysqli_query($conn, $insert);
+
+            # check
+            if($run) {
+                echo 'success';
+            } else {
+                echo 'failed';
+            }
+
+        }
+
+    }
+
+    /**End add men's pants */ ///////////////////////////////////////////
+
 ?>

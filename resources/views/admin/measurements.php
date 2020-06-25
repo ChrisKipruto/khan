@@ -43,13 +43,15 @@
     */
 
         # get men's shoes from table
-        $sql = "SELECT * FROM men_shoe_sizes";
+        $sql = "SELECT * FROM `men_shoe_sizes`";
 
         # store result
         $result = mysqli_query($conn, $sql);
 
         # fetch men's shoes results into an array
         $menShoes = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+        $mens_shoes_array = array();
 
     /* End Men's shoes *////////////////////////////////////
 
@@ -64,7 +66,7 @@
         $result = mysqli_query($conn, $sql);
 
         # fetch dress results into an array
-        $menShoes = mysqli_fetch_all($result, MYSQLI_ASSOC);
+        $dresses = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
     /* End Dress *//////////////////////////////////////////
 
@@ -116,14 +118,14 @@
         <div class="col-xl-10 col-lg-10 col-md-12 col-sm-12 mb-3">
             <ul class="nav nav-tabs black md-tabs" id="categoryTab" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link white-text border-0 font-semibold" id="home-tab" 
+                    <a class="nav-link active white-text border-0 font-semibold" id="home-tab" 
                         data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">
                         Baby/Kids Shoes
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link active white-text border-0 font-semibold" id="womenShoes-tab" 
+                    <a class="nav-link white-text border-0 font-semibold" id="womenShoes-tab" 
                         data-toggle="tab" href="#womenShoes" role="tab" aria-controls="womenShoes" aria-selected="false">
                         Women's Shoes
                     </a>
@@ -162,7 +164,7 @@
             <div class="tab-content  pt-3" id="categoryTabContent">
 
                 <!-- baby shoes tab -->
-                <div class="tab-pane fade  px-2 py-2" id="home" 
+                <div class="tab-pane fade  show active px-2 py-2" id="home" 
                     role="tabpanel" aria-labelledby="home-tab">
                     <div class="mx-2 my-2">
                         <div class="row d-flex justify-center">
@@ -171,8 +173,8 @@
                                 <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 mb-3">
                                     <p>There are no baby shoe sizes added yet!</p>
                                     <a href="addBabyShoes.php" 
-                                        class="btn btn-md indigo lighten-4 
-                                        black-text tracking-wider font-bold">
+                                        class="btn btn-md btn-indigo lighten-4 
+                                        tracking-wider font-bold">
                                         <i class="fas fa-feather pr-2"></i>
                                         Add
                                     </a>
@@ -180,8 +182,8 @@
                             <?php else: ?>
                                 <div class="col-xl-10 col-lg-10 col-md-12 col-sm-12 mb-3">
                                     <a href="addBabyShoes.php" 
-                                        class="btn btn-md indigo lighten-4 
-                                        black-text tracking-wider font-bold">
+                                        class="btn btn-md btn-indigo lighten-4 
+                                        tracking-wider font-bold">
                                         <i class="fas fa-feather pr-2"></i>
                                         Add
                                     </a>
@@ -218,7 +220,7 @@
                 </div> <!-- end baby shoes tab -->
 
                 <!-- women's shoes tab -->
-                <div class="tab-pane show active fade px-2 py-2" id="womenShoes" 
+                <div class="tab-pane fade px-2 py-2" id="womenShoes" 
                     role="tabpanel" aria-labelledby="womenShoes-tab">
                     <div class="mx-2 my-2">
                         <div class="row d-flex justify-content-center">
@@ -247,8 +249,8 @@
                                             data-parent="#womenShoeAccordion">
                                                 <div class="card-body">
                                                     <a href="addWomenShoes.php" 
-                                                        class="btn btn-md indigo lighten-4 
-                                                        black-text tracking-wider font-bold">
+                                                        class="btn btn-md btn-indigo 
+                                                        tracking-wider font-bold">
                                                         <i class="fas fa-feather pr-2"></i>
                                                         Add
                                                     </a>
@@ -296,12 +298,39 @@
                                                 </h5>
                                             </div>
 
-                                            <div id="womenShoeAccordionCollapeTwo" class="collapse" aria-labelledby="womenShoeAccordionHeadingTwo" data-parent="#womenShoeAccordion">
-                                                <div class="card-body">
-                                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id, maxime?                 
+                                            <div id="womenShoeAccordionCollapeTwo" 
+                                                class="collapse" 
+                                                aria-labelledby="womenShoeAccordionHeadingTwo" 
+                                                data-parent="#womenShoeAccordion">
+                                                <div class="row d-flex justify-center">
+                                                    <div class="col-md-6">
+                                                        <table id="heelToToeTable" class="table table-striped table-sm">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Heel to Toe</th>
+                                                                </tr>
+                                                            </thead>
+
+                                                            <tbody>
+                                                                <?php foreach ($womenShoes as $womenShoe): ?>
+                                                                    <?php for($h = 0; $h < count(explode(',', $womenShoe['heel_to_toe'])); $h++): ?>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <?php
+                                                                                    $heels = explode(',', $womenShoe['heel_to_toe']);
+                                                                                    $c_w_h = array_merge($heels, $women_shoes_heel_array);
+                                                                                    print_r($c_w_h[$h]);
+                                                                                ?>
+                                                                            </td>
+                                                                        </tr>
+                                                                    <?php endfor; ?>
+                                                                <?php endforeach; ?>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             <?php endif; ?>
@@ -313,8 +342,54 @@
                 <div class="tab-pane fade px-2 py-2" id="menShoes" 
                     role="tabpanel" aria-labelledby="menShoes-tab">
                     <div class="mx-3 my-3">
-                        <div class="row">
-                                                    
+                        <div class="row d-flex justify-center">
+                            <!-- check if men's shoes is not null -->                 
+                            <?php if(!$menShoes): ?>
+                                <div class="col-xl-8 col-lg-8 col-md-10 col-sm-12 mb-3">
+                                    <div class="text-center">
+                                        <p class="lead font-semibold">
+                                            There are no measurements added.
+                                            <a href="addMenShoes.php" 
+                                                class="btn btn-md btn-indigo font-seminbold tracking-wide">
+                                                <i class="fas fa-plus pr-2"></i>
+                                                Add
+                                            </a>
+                                        </p>
+                                    </div>
+                                </div>
+                            <?php else: ?>
+                                <div class="col-xl-8 col-lg-8 col-md-10 col-sm-12 mb-3">
+                                    <a href="addMenShoes.php" 
+                                        class="btn btn-md btn-indigo font-seminbold tracking-wide mb-2">
+                                        <i class="fas fa-plus pr-2"></i>
+                                        Add
+                                    </a>
+                                    <table id="mensShoesTable" class="table table-striped table-bordered table-sm">
+                                        <thead>
+                                            <tr>
+                                            <?php foreach($menShoes as $menShoe): ?>
+                                                <th><?php echo htmlspecialchars($menShoe['country']); ?></th>
+                                            <?php endforeach; ?>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        <?php for($ms = 0; $ms < count(explode(',',$menShoe['Size'])); $ms++):?>   
+                                            <tr>
+                                                <?php foreach($menShoes as $menShoe): ?>
+                                                    <td>
+                                                        <?php
+                                                            $menS = explode(',',$menShoe['Size']);
+                                                            // $c_m_s = array_merge($mens_shoes_array, $menS);
+                                                            print_r($menS[$ms]);
+                                                        ?>
+                                                    </td>
+                                                <?php endforeach; ?>
+                                            </tr>
+                                        <?php endfor; ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div> <!-- end men's shoes tab -->
@@ -323,7 +398,51 @@
                 <div class="tab-pane fade px-2 py-2" id="dresses" 
                     role="tabpanel" aria-labelledby="dresses-tab">
                     <div class="mx-3 my-3">
-                        Lorem, ipsum dolor.
+                        <div class="row d-flex justify-center">
+                            <!-- check if men's shoes is not null -->                 
+                            <?php if(!$dresses): ?>
+                                <div class="col-xl-8 col-lg-8 col-md-10 col-sm-12 mb-3">
+                                    <div class="text-center">
+                                        <p class="lead font-semibold">
+                                            There are no measurements added.
+                                            <a href="addDresses.php" 
+                                                class="btn btn-md btn-indigo font-seminbold tracking-wide">
+                                                <i class="fas fa-plus pr-2"></i>
+                                                Add
+                                            </a>
+                                        </p>
+                                    </div>
+                                </div>
+                            <?php else: ?>
+                                <div class="col-xl-9 col-lg-9 col-md-10 col-sm-12 mb-3">
+                                    <a href="addDresses.php" 
+                                        class="btn btn-md btn-indigo font-seminbold tracking-wide mb-2">
+                                        <i class="fas fa-plus pr-2"></i>
+                                        Add
+                                    </a>
+                                    <table id="dressesTable" class="table table-striped table-bordered table-sm">
+                                        <thead class="p-2 bg-black">
+                                            <tr class="uppercase white-text font-bold">
+                                                <th>Sizes</th>
+                                                <th>Chest</th>
+                                                <th>Waist</th>
+                                                <th>Hip</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php foreach($dresses as $dresse): ?>
+                                                <tr>
+                                                    <td><?php echo htmlspecialchars($dresse['size']); ?></td>
+                                                    <td><?php echo htmlspecialchars($dresse['chest']); ?></td>
+                                                    <td><?php echo htmlspecialchars($dresse['waist']); ?></td>
+                                                    <td><?php echo htmlspecialchars($dresse['hip']); ?></td>
+                                                </tr>
+                                            <?php endforeach;?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            <?php endif; ?>
+                        </div>
                     </div>
                 </div> <!-- end Dresses tab -->
 
@@ -331,7 +450,52 @@
                 <div class="tab-pane fade px-2 py-2" id="womenPants" 
                     role="tabpanel" aria-labelledby="womenPants-tab">
                     <div class="mx-3 my-3">
-                        Lorem, ipsum dolor.
+                        <div class="row d-flex justify-content-center">
+                            <!-- check if men's shoes is not null -->                 
+                            <?php if(!$womenPants): ?>
+                                <div class="col-xl-8 col-lg-8 col-md-10 col-sm-12 mb-3">
+                                    <div class="text-center">
+                                        <p class="lead font-semibold">
+                                            There are no measurements added.
+                                            <a href="addWomenPants.php" 
+                                                class="btn btn-indigo btn-md font-seminbold tracking-wide">
+                                                <i class="fas fa-plus pr-2"></i>
+                                                Add
+                                            </a>
+                                        </p>
+                                    </div>
+                                </div>
+                            <?php else: ?>
+                                <div class="col-xl-9 col-lg-9 col-md-10 col-sm-12 mb-3">
+                                    <a href="addWomenPants.php" 
+                                        class="btn btn-indigo btn-md font-seminbold tracking-wide">
+                                        <i class="fas fa-plus pr-2"></i>
+                                        Add
+                                    </a>
+
+                                    <table id="womenPantsTable" class="table table-striped table-sm">
+                                        <thead class="p-2 bg-black">
+                                            <tr class="uppercase white-text font-bold">
+                                                <th>Sizes</th>
+                                                <th>Bust</th>
+                                                <th>Waist</th>
+                                                <th>Hip</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php foreach($womenPants as $womenPant): ?>
+                                                <tr>
+                                                    <td><?php echo htmlspecialchars($womenPant['size']); ?></td>
+                                                    <td><?php echo htmlspecialchars($womenPant['bust']); ?></td>
+                                                    <td><?php echo htmlspecialchars($womenPant['waist']); ?></td>
+                                                    <td><?php echo htmlspecialchars($womenPant['hip']); ?></td>
+                                                </tr>
+                                            <?php endforeach;?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            <?php endif; ?>
+                        </div>
                     </div>
                 </div> <!-- end Women's Pants tab -->
 
@@ -339,7 +503,48 @@
                 <div class="tab-pane fade px-2 py-2" id="menPants" 
                     role="tabpanel" aria-labelledby="menPants-tab">
                     <div class="mx-3 my-3">
-                        Lorem, ipsum dolor.
+                    <div class="row d-flex justify-content-center">
+                            <!-- check if men's shoes is not null -->                 
+                            <?php if(!$menPants): ?>
+                                <div class="col-xl-8 col-lg-8 col-md-10 col-sm-12 mb-3">
+                                    <div class="text-center">
+                                        <p class="lead font-semibold">
+                                            There are no measurements added.
+                                            <a href="addMenPants.php" 
+                                                class="btn btn-indigo font-seminbold tracking-wide">
+                                                <i class="fas fa-plus pr-2"></i>
+                                                Add
+                                            </a>
+                                        </p>
+                                    </div>
+                                </div>
+                            <?php else: ?>
+                                <div class="col-xl-9 col-lg-9 col-md-10 col-sm-12 mb-3">
+                                    <a href="addMenPants.php" 
+                                        class="btn btn-md btn-indigo font-seminbold tracking-wide">
+                                        <i class="fas fa-plus pr-2"></i>
+                                        Add
+                                    </a>
+
+                                    <table id="menPantsTable" class="table table-striped table-sm">
+                                        <thead class="p-2 bg-black">
+                                            <tr class="uppercase white-text font-bold">
+                                                <th>Sizes</th>
+                                                <th>Waist</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php foreach($menPants as $menPant): ?>
+                                                <tr>
+                                                    <td><?php echo htmlspecialchars($menPant['size']); ?></td>
+                                                    <td><?php echo htmlspecialchars($menPant['waist']); ?></td>
+                                                </tr>
+                                            <?php endforeach;?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            <?php endif; ?>
+                        </div>
                     </div>
                 </div> <!-- end Mens's Pants tab -->
             </div>
