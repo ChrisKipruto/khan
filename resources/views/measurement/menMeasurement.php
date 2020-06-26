@@ -4,41 +4,6 @@
     require "../../config/connect.php";
 
     /**
-     * Baby shoes 
-    */
-
-        # get baby shoes from table
-        $sql = "SELECT * FROM baby_shoes";
-
-        # store result
-        $result = mysqli_query($conn, $sql);
-
-        # fetch baby shoes results into an array
-        $babyShoes = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
-        $baby_shoe_array = array();
-
-    /* End baby shoes *//////////////////////////////////////
-
-    /**
-     * Women's shoes 
-    */
-
-        # get women's shoes from table
-        $sql = "SELECT * FROM women_shoe_sizes";
-
-        # store result
-        $result = mysqli_query($conn, $sql);
-
-        # fetch women's shoes results into an array
-        $womenShoes = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
-        $women_shoes_array = array();
-        $women_shoes_heel_array = array();
-
-    /* End women's shoes *///////////////////////////////////
-
-    /**
      * Men's shoes 
     */
 
@@ -56,36 +21,6 @@
     /* End Men's shoes *////////////////////////////////////
 
     /**
-     * Dress  
-    */
-
-        # get dress from table
-        $sql = "SELECT * FROM dress_sizes";
-
-        # store result
-        $result = mysqli_query($conn, $sql);
-
-        # fetch dress results into an array
-        $dresses = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
-    /* End Dress *//////////////////////////////////////////
-
-    /**
-     * Women's Pants 
-    */
-
-        # get women's pants from table
-        $sql = "SELECT * FROM women_pants_sizes";
-
-        # store result
-        $result = mysqli_query($conn, $sql);
-
-        # fetch  women's pants results into an array
-        $womenPants = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
-    /* End Women's Pants*///////////////////////////////////
-
-    /**
      * Men's Pants  
     */
 
@@ -99,6 +34,22 @@
         $menPants = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
     /* End Men's Pants *////////////////////////////////////
+
+    /**
+     * Men's Shirts  
+    */
+
+        # get men's Shirts from table
+        $sql = "SELECT * FROM men_size_shirts";
+
+        # store result
+        $result = mysqli_query($conn, $sql);
+
+        # fetch  men's Shirts results into an array
+        $menShirts = mysqli_fetch_all($result, MYSQLI_ASSOC);
+        $mens_shirts_array = array();
+
+    /* End Men's Shirts *////////////////////////////////////
 
     # free result from memory
     mysqli_free_result($result);
@@ -119,7 +70,7 @@
             <ul class="nav nav-tabs black md-tabs" id="categoryTab" role="tablist">
 
                 <li class="nav-item">
-                    <a class="nav-link active white-text border-0 font-semibold" id="menShoes-tab" 
+                    <a class="nav-link white-text border-0 font-semibold" id="menShoes-tab" 
                         data-toggle="tab" href="#menShoes" role="tab" aria-controls="menShoes" aria-selected="false">
                         Mens's Shoes
                     </a>
@@ -133,7 +84,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link white-text border-0 font-semibold" id="menShirts-tab" 
+                    <a class="nav-link active white-text border-0 font-semibold" id="menShirts-tab" 
                         data-toggle="tab" href="#menShirts" role="tab" aria-controls="menShirts" aria-selected="false">
                         Men's Shirts
                     </a>
@@ -165,7 +116,7 @@
             <div class="tab-content  pt-3" id="categoryTabContent">
 
                 <!-- men's shoes tab -->
-                <div class="tab-pane fade show active px-2 py-2" id="menShoes" 
+                <div class="tab-pane fade px-2 py-2" id="menShoes" 
                     role="tabpanel" aria-labelledby="menShoes-tab">
                     <div class="mx-3 my-3">
                         <div class="row d-flex justify-center">
@@ -248,8 +199,8 @@
                                     </a>
 
                                     <table id="menPantsTable" class="table table-striped table-sm">
-                                        <thead class="p-2 bg-black">
-                                            <tr class="uppercase white-text font-bold">
+                                        <thead class="">
+                                            <tr class="font-bold">
                                                 <th>Sizes</th>
                                                 <th>Waist</th>
                                             </tr>
@@ -270,10 +221,32 @@
                 </div> <!-- end Mens's Pants tab -->
 
                 <!-- Men's Shirts -->
-                <div class="tab-pane fade px-2 py-2" id="menShirts" role="tabpanel" aria-labelledby="menShirts-tab">
+                <div class="tab-pane fade show active px-2 py-2" id="menShirts" role="tabpanel" aria-labelledby="menShirts-tab">
                     <div class="mx-3 my-3">
-                        <div class="row">
-                            <div class="col-xl-9"></div>
+                        <div class="row d-flex justify-center">
+                            <!-- check if shirts is not null -->
+                            <?php if(!$menShirts): ?>
+                                <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 mb-3">
+                                    <p class="lead font-bold text-center">
+                                        There are no measurements.
+                                        <a href="addMenShirts.php" class="btn btn-md btn-indigo">
+                                            <i class="fas fa-plus pr-2"></i>
+                                            Add
+                                        </a>
+                                    </p>
+                                </div>
+                            <?php else: ?>
+                                <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 mb-3">
+                                    <a href="addMenShirts.php" class="btn btn-md btn-indigo">
+                                        <i class="fas fa-plus pr-2"></i>
+                                        Add
+                                    </a>
+
+                                    <table id="menShirtsTable" class="table table-striped table-sm">
+
+                                    </table>
+                                </div>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div> <!-- end Men's Shirts -->
