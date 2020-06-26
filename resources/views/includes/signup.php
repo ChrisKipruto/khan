@@ -8,6 +8,7 @@ if(isset($_POST['register'])){
     # init registration details
     $name = mysqli_real_escape_string($conn, htmlspecialchars($_POST['name']));
     $email = mysqli_real_escape_string($conn, htmlspecialchars($_POST['email']));
+    $phone = mysqli_real_escape_string($conn, htmlspecialchars($_POST['phone']));
     $pwd = mysqli_real_escape_string($conn, htmlspecialchars($_POST['pwd']));
 
     # set default time zone
@@ -27,27 +28,40 @@ if(isset($_POST['register'])){
         # check count
         if(mysqli_num_rows($result) < 1){
 
-            # hash password
-            $pwdHash = password_hash($pwd, PASSWORD_DEFAULT);
+            # check email if it exists
+            $sql = "SELECT * FROM customers WHERE phone_number = '$phone'";
 
-            /**
-             * INSERT
-            */
-            $sql = "INSERT INTO customers (fullname, email, pass_word, updated_at) 
-                    VALUES('$name', '$email', '$pwdHash', '$dt')";
+            # run and store result
+            $result = mysqli_query($conn, $sql);
 
-            # run insert stmt
-            $run = mysqli_query($conn, $sql);
+            # check count
+            if(mysqli_num_rows($result) < 1){
 
-            # check run
-            if($run){
+                # hash password
+                $pwdHash = password_hash($pwd, PASSWORD_DEFAULT);
 
-                echo 'Successful Registration';
+                /**
+                 * INSERT
+                */
+                $sql = "INSERT INTO customers (fullname, email, phone_number, pass_word, updated_at) 
+                        VALUES('$name', '$email', '$phone', '$pwdHash', '$dt')";
+
+                # run insert stmt
+                $run = mysqli_query($conn, $sql);
+
+                # check run
+                if($run){
+
+                    echo 'Successful Registration';
+
+                } else {
+
+                    echo 'Failed Registration';
+
+                }
 
             } else {
-
-                echo 'Failed Registration';
-
+                echo 'Phone Exist';
             }
 
         } else {

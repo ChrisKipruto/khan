@@ -1,5 +1,8 @@
 $(function(){
 
+    // const
+    const overlay = $("#overlay");
+
     var emailPattern = /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/;
     var passwordPattern = /^[\w@#&-]{8,20}$/;
     var namePattern = /^[a-zA-Z]+$/;
@@ -168,6 +171,7 @@ $(function(){
     var registerButton = $("#register-button")
     var regName = $("#reg-name");
     var regEmail = $("#reg-email");
+    var regPhone = $("#reg-phone");
     var regPwd = $("#reg-password");
     var confirmPassword = $("#confirm-password");
     var terms = $("#terms-conditions");
@@ -202,6 +206,21 @@ $(function(){
             }
         }
 
+        if(regPhone.val() == ""){
+            $("p.phone-help").html('Phone Number is required.');
+            regPhone.focus();
+            return false;
+        } else {
+            $("p.phone-help").html('');
+            if(!/^[0]\d{9}$/.test(regPhone.val())) {
+                $("p.phone-help").html('Telephone must be a valid KE phone number(0722XXXXXX)');
+                regPhone.focus();
+                return false;
+            } else {
+                $("p.phone-help").html('');
+            }
+        }
+
         // password check
         if(!passwordPattern.test(regPwd.val())){
             regPwd.focus();
@@ -226,16 +245,21 @@ $(function(){
 
         var name = regName.val();
         var email = regEmail.val();
+        var phone = regPhone.val();
         var pwd = regPwd.val();
 
         if(terms.is(":checked")){
+
+            overlay.show();
 
             // AJAX
             $.ajax({
                 method: 'POST',
                 url: '../includes/signup.php',
-                data: {register: 1, name: name, email: email, pwd: pwd},
+                data: {register: 1, name: name, email: email, phone: phone, pwd: pwd},
                 success: function(data){
+
+                    overlay.hide();
 
                     var result = $.trim(data);
 
@@ -249,6 +273,15 @@ $(function(){
                     if(result === "Email Exist"){
                         regEmail.focus();
                         $('.danger-msg-p').html('That email address already exists.');
+                        $(".danger-msg").show();
+                        $(".success-msg").hide();
+                        $(".warning-msg").hide();
+                    }
+
+                    // 'Phone Exist
+                    if(result === "Phone Exist"){
+                        regPhone.focus();
+                        $('.danger-msg-p').html('That Phone Number already exists.');
                         $(".danger-msg").show();
                         $(".success-msg").hide();
                         $(".warning-msg").hide();
@@ -299,6 +332,7 @@ $(function(){
         }
 
     });
+
     // on keyup email
     regEmail.on('keyup', function(e){
 
@@ -321,6 +355,30 @@ $(function(){
         }
 
     });
+
+    // on keyup phone
+    regPhone.on('keyup', function(e){
+
+        // clicked ↵
+        if(e.keyCode === 13){
+            registerButton.click();
+        } else {
+
+            if(regPhone.val() == ""){
+                $("p.phone-help").html('Phone Number is required.');
+            } else {
+                $("p.phone-help").html('');
+                if(!/^[0]\d{9}$/.test(regPhone.val())) {
+                    $("p.phone-help").html('Telephone must be a valid KE phone number(0722XXXXXX)');
+                } else {
+                    $("p.phone-help").html('');
+                }
+            }
+
+        }
+
+    });
+
     // on keyup password
     regPwd.on('keyup', function(e){
 
@@ -338,6 +396,7 @@ $(function(){
         }
 
     });
+
     // on keyup confirm password
     confirmPassword.on('keyup', function(e){
 

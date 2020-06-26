@@ -11,13 +11,19 @@ body {
     min-height: 100%;
 }
 
+.bold-fonts {
+    font-weight: 500 !important;
+}
+
 a.hover-white:hover {
     color: white !important;
+    font-weight: 700;
     transition: all ease .2s;
 }
 
 a.hover-black:hover {
     color: black !important;
+    font-weight: 700;
     transition: all ease .2s;
 }
 

@@ -49,7 +49,7 @@
                         <!-- customers -->
                         <tr class="px-3 d-flex justify-between align-items-center">
                             <th class="border-0">
-                                <a href="">
+                                <a href="customers.php">
                                     <i class="fas fa-users pr-2"></i>
                                     Customers
                                 </a>
@@ -122,7 +122,7 @@
                 <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 mb-4">
                     <div class="bg-gray-300 shadow-md rounded-sm flex-center py-4">
                         <div class="text-center" id="customerTile">
-                            <a href="">
+                            <a href="customers.php">
                                 <h2 class="text-gray-700 font-bold mb-1 fa-2x">
                                     <i class="fas fa-signal"></i>
                                     <span></span>

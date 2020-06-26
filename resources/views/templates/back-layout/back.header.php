@@ -64,6 +64,12 @@
                         </li>
 
                         <li class="nav-item">
+                            <a href="<?php echo $path . '/admin/customers.php'; ?>" class="nav-link outline-none waves-effect waves-ripple tracking-wide font-navbar">
+                                Customers
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
                             <a href="<?php echo $path . '/admin/products.php'; ?>" class="nav-link outline-none waves-effect waves-ripple tracking-wide font-navbar">
                                 Products
                             </a>
@@ -83,17 +89,17 @@
 
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle tracking-wide font-navbar" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-tape"></i>
                                 Size Guides
                             </a>
                             <div class="dropdown-menu dropdown-primary px-2 py-3" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item hover:bg-indigo-200 hover:shadow-lg hover:font-bold"
+                                <a class="dropdown-item bold-fonts rounded-xs hover-black hover:bg-indigo-200 hover:shadow-lg hover:font-bold"
                                     href="<?php echo $path . '/measurement/babyMeasurement.php'; ?>">
                                     Kids Measurement</a>
-                                <a class="dropdown-item  hover:bg-indigo-200 hover:shadow-lg" 
+                                <a class="dropdown-item bold-fonts rounded-xs hover-black  hover:bg-indigo-200 hover:shadow-lg" 
                                     href="<?php echo $path . '/measurement/menMeasurement.php'; ?>">
                                     Men's Measurement</a>
-                                <a class="dropdown-item  hover:bg-indigo-200 hover:shadow-lg"
+                                    <div class="dropdown-divider"></div>
+                                <a class="dropdown-item bold-fonts rounded-xs hover-black  hover:bg-indigo-200 hover:shadow-lg"
                                     href="<?php echo $path . '/measurement/womenMeasurement.php'; ?>">
                                     Women's mesurement</a>
                             </div>
@@ -122,7 +128,7 @@
             </div>
 
             <div class="w-2/5 h-full d-flex align-items-center justify-content-end">
-                <button class="btn indigo lighten-4 black-text font-semibold dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button class="btn btn-md indigo lighten-4 black-text font-semibold dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Create Content
                 </button>
                 <div class="dropdown-menu p-2">

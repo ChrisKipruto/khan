@@ -31,6 +31,12 @@
                                 <input type="email" name="reg-email" id="reg-email" placeholder="e.g name@mydomain.com" class="w-full px-3 py-3 rounded shadow-sm text-gray-900 outline-none transition duration-500 ease-in-out hover:bg-indigo-200 focus:shadow-md focus:bg-indigo-300">
                                 <p class="red-text font-semibold font-small email-help"></p>
                             </div>
+
+                            <div class="mb-3">
+                                <label for="phone" class="uppercase font-bold text-xs text-gray-900">Phone Number</label>
+                                <input type="text" name="reg-phone" id="reg-phone" placeholder="e.g 0720XXXXXX" class="w-full px-3 py-3 rounded shadow-sm text-gray-900 outline-none transition duration-500 ease-in-out hover:bg-indigo-200 focus:shadow-md focus:bg-indigo-300">
+                                <p class="red-text font-semibold font-small phone-help"></p>
+                            </div>
                         </div>
 
                         <div class="col-xl-5">

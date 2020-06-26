@@ -26,6 +26,12 @@
 </head>
 <body class="bg-indigo-100">
 
+    <div id="overlay">
+        <div id="text">
+            <img src="../../../public/img/5.gif" class="" alt="Overlay">
+        </div>
+    </div>
+
     <header>
         <?php require '../includes/nav.php'; ?>
     </header>

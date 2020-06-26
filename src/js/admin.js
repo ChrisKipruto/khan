@@ -25,6 +25,7 @@ $(function() {
     $("table#brandsTable").DataTable();
     $("table#catsTable").DataTable();
     $("table#subCatTable").DataTable();
+    $("#customersTable").DataTable();
 
     /**
      * add brand
