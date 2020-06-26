@@ -81,12 +81,12 @@
                             </a>
                         </li>
 
-                        <!-- Dropdown -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle font-navbar" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                                Size Guide
+                        <li class="nav-item">
+                            <a href="<?php echo $path . '/admin/measurements.php'; ?>" class="nav-link outline-none waves-effect waves-ripple tracking-wide font-navbar">
+                                <i class="fas fa-tape"></i>
+                                Measurements
                             </a>
+<<<<<<< HEAD
                             <div class="dropdown-menu dropdown-primary px-2 py-3" aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item hover:bg-indigo-200 hover:shadow-lg hover:font-bold"
                                     href="<?php echo $path . '/admin/measurement/babyMeasurement.php'; ?>">
@@ -98,6 +98,8 @@
                                     href="<?php echo $path . '/admin/measurement/womenMeasurement.php'; ?>">
                                     Women's mesurement</a>
                             </div>
+=======
+>>>>>>> parent of e4eab18... added size guide dropdown menu and measurements pages
                         </li>
                     </ul>
 
