@@ -1,7 +1,7 @@
 <?php
 
     # connect to db
-    require "../../../config/connect.php";
+    require "../../config/connect.php";
 
     /**
      * Baby shoes 
@@ -109,7 +109,7 @@
 ?>
 
 <!-- admin header -->
-<?php require "../../templates/back-layout/back.header.php"; ?>
+<?php require "../templates/back-layout/back.header.php"; ?>
 
 <title>Khan Store &bullet; Measurements</title>
 
@@ -371,4 +371,4 @@
 </div>
 
 <!-- admin footer -->
-<?php require "../../templates/back-layout/back.footer.php"; ?>
+<?php require "../templates/back-layout/back.footer.php"; ?>

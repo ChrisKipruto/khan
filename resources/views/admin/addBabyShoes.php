@@ -1,5 +1,5 @@
 <!-- back app header -->
-<?php require "../../templates/back-layout/back.header.php"; ?>
+<?php require "../templates/back-layout/back.header.php"; ?>
 
 <!-- title -->
 <title> Khan Store &bull; Add Baby Shoes Measurements </title>
@@ -53,4 +53,4 @@
 </div>
 
 <!-- back app footer -->
-<?php require "../../templates/back-layout/back.footer.php"; ?>
+<?php require "../templates/back-layout/back.footer.php"; ?>

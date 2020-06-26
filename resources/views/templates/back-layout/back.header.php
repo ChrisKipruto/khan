@@ -81,25 +81,22 @@
                             </a>
                         </li>
 
-                        <li class="nav-item">
-                            <a href="<?php echo $path . '/admin/measurements.php'; ?>" class="nav-link outline-none waves-effect waves-ripple tracking-wide font-navbar">
-                                <i class="fas fa-tape"></i>
-                                Measurements
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle tracking-wide font-navbar" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-tape pr-2"></i>
+                                Size Guides
                             </a>
-<<<<<<< HEAD
                             <div class="dropdown-menu dropdown-primary px-2 py-3" aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item hover:bg-indigo-200 hover:shadow-lg hover:font-bold"
-                                    href="<?php echo $path . '/admin/measurement/babyMeasurement.php'; ?>">
+                                    href="<?php echo $path . '/admin/babyMeasurement.php'; ?>">
                                     Baby Measurement</a>
                                 <a class="dropdown-item  hover:bg-indigo-200 hover:shadow-lg" 
-                                    href="<?php echo $path . '/admin/measurement/menMeasurement.php'; ?>">
+                                    href="<?php echo $path . '/admin/menMeasurement.php'; ?>">
                                     Men's Measurement</a>
                                 <a class="dropdown-item  hover:bg-indigo-200 hover:shadow-lg"
-                                    href="<?php echo $path . '/admin/measurement/womenMeasurement.php'; ?>">
+                                    href="<?php echo $path . '/admin/womenMeasurement.php'; ?>">
                                     Women's mesurement</a>
                             </div>
-=======
->>>>>>> parent of e4eab18... added size guide dropdown menu and measurements pages
                         </li>
                     </ul>
 

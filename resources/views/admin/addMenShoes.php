@@ -1,25 +1,7 @@
 <!-- admin header -->
-<?php require "../../templates/back-layout/back.header.php"; ?>
+<?php require "../templates/back-layout/back.header.php"; ?>
 
 <title>Khan Store &bullet; Measurements</title>
-
-<?php
-
-# connect to db
-require "../../../config/connect.php";
-
-# get men's shoes from table
-$sql = "SELECT * FROM `men_shoe_sizes`";
-
-# store result
-$result = mysqli_query($conn, $sql);
-
-# fetch men's shoes results into an array
-$menShoes = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
-$mens_shoes_array = array();
-
-?>
 
 <div class="container">
     <div class="row d-flex justify-center">
@@ -70,4 +52,4 @@ $mens_shoes_array = array();
 </div>
 
 <!-- admin footer -->
-<?php require "../../templates/back-layout/back.footer.php"; ?>
+<?php require "../templates/back-layout/back.footer.php"; ?>
