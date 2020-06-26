@@ -7,7 +7,7 @@
     <div class="row d-flex justify-center">
         <!-- go back to measurements -->
         <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 mb-1">
-            <a href="measurements.php" 
+            <a href="womenMeasurement.php" 
                 class="btn btn-link btn-md font-bold tracking-wider">
                 Back to Measurements
             </a>

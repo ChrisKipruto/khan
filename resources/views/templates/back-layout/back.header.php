@@ -81,11 +81,23 @@
                             </a>
                         </li>
 
-                        <li class="nav-item">
-                            <a href="<?php echo $path . '/admin/measurements.php'; ?>" class="nav-link outline-none waves-effect waves-ripple tracking-wide font-navbar">
-                                <i class="fas fa-tape"></i>
-                                Measurements
+                        <!-- Dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle font-navbar" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                                Size Guide
                             </a>
+                            <div class="dropdown-menu dropdown-primary px-2 py-3" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item hover:bg-indigo-200 hover:shadow-lg hover:font-bold"
+                                    href="<?php echo $path . '/admin/babyMeasurement.php'; ?>">
+                                    Baby Measurement</a>
+                                <a class="dropdown-item  hover:bg-indigo-200 hover:shadow-lg" 
+                                    href="<?php echo $path . '/admin/menMeasurement.php'; ?>">
+                                    Men's Measurement</a>
+                                <a class="dropdown-item  hover:bg-indigo-200 hover:shadow-lg"
+                                    href="<?php echo $path . '/admin/womenMeasurement.php'; ?>">
+                                    Women's mesurement</a>
+                            </div>
                         </li>
                     </ul>
 
