@@ -1,12 +1,12 @@
 <!-- admin header -->
-<?php require "../templates/back-layout/back.header.php"; ?>
+<?php require "../../templates/back-layout/back.header.php"; ?>
 
 <title>Khan Store &bullet; Measurements</title>
 
 <?php
 
 # connect to db
-require "../../config/connect.php";
+require "../../../config/connect.php";
 
 # get men's shoes from table
 $sql = "SELECT * FROM `men_shoe_sizes`";
@@ -70,4 +70,4 @@ $mens_shoes_array = array();
 </div>
 
 <!-- admin footer -->
-<?php require "../templates/back-layout/back.footer.php"; ?>
+<?php require "../../templates/back-layout/back.footer.php"; ?>

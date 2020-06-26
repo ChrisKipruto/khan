@@ -1,7 +1,7 @@
 <?php
 
     # connect to db
-    require "../../config/connect.php";
+    require "../../../config/connect.php";
 
     /**
      * Baby shoes 

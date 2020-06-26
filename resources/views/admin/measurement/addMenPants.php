@@ -1,5 +1,5 @@
 <!-- admin header -->
-<?php require "../templates/back-layout/back.header.php"; ?>
+<?php require "../../templates/back-layout/back.header.php"; ?>
 
 <title>Khan Store &bullet; Add Women's Pants</title>
 
@@ -53,4 +53,4 @@
 </div>
 
 <!-- admin footer -->
-<?php require "../templates/back-layout/back.footer.php"; ?>
+<?php require "../../templates/back-layout/back.footer.php"; ?>
